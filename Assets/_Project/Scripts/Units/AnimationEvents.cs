@@ -20,12 +20,12 @@ namespace Reclamation.Units
 
         public void FootR()
         {
-            _inventory.PlayStepSound();
+            //_inventory.PlayStepSound();
         }
 
         public void FootL()
         {
-            _inventory.PlayStepSound();
+            //_inventory.PlayStepSound();
         }
 
         public void Land()

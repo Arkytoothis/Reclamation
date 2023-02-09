@@ -290,7 +290,7 @@ namespace Reclamation.Units
             _pathfinder.MoveTo(position);
         }
 
-        public void SyncData()
+        public override void SyncData()
         {
             onSyncHero.Invoke(this);
             _worldPanel.SyncData();

@@ -13,6 +13,7 @@ namespace Reclamation.AI
         [SerializeField] private Transform _actionsParent;
         [SerializeField] protected List<Action> _actions = new List<Action>();
 
+        protected Unit _unit = null;
         protected Dictionary<SubGoal, int> _goals = new Dictionary<SubGoal, int>();
         protected Planner _planner = null;
         protected Queue<Action> _actionQueue = null;
@@ -36,6 +37,7 @@ namespace Reclamation.AI
 
         private void Awake()
         {
+            _unit = GetComponent<Unit>();
             SetupActions();
             _beliefs = new WorldStates();
         }
@@ -130,7 +132,7 @@ namespace Reclamation.AI
                     }
                 }
                 
-                GetComponent<Hero>().SyncData();
+                _unit.SyncData();
             }
         }
 

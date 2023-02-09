@@ -8,6 +8,7 @@ namespace Reclamation.Core
     public class PlaceOnGround : MonoBehaviour
     {
         [SerializeField] private bool _placeOnStart = false;
+        [SerializeField] private bool _placeInUpdate = false;
         [SerializeField] private float _yOffset = 0f;
         [SerializeField] private LayerMask _groundMask = new LayerMask();
 
@@ -29,6 +30,13 @@ namespace Reclamation.Core
             {
                 transform.position = new Vector3(transform.position.x, hit.point.y - _yOffset, transform.position.z);
             }
+        }
+
+        private void Update()
+        {
+            if (_placeInUpdate == false) return;
+            
+            Place();
         }
     }
 }

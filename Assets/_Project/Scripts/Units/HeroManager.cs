@@ -89,5 +89,23 @@ namespace Reclamation.Units
             
             _selectedHero.MoveTo(position);
         }
+
+        public Hero FindClosestHero(Transform searcher)
+        {
+            List<Hero> heroTargets = new List<Hero>();
+
+            foreach (Hero hero in _heroes)
+            {
+                heroTargets.Add(hero);
+            }
+            
+            heroTargets.Sort(delegate(Hero a, Hero b)
+            {
+                return Vector3.Distance(searcher.position,a.transform.position)
+                    .CompareTo( Vector3.Distance(searcher.position,b.transform.position) );
+            });
+                
+            return heroTargets[0];
+        }
     }
 }

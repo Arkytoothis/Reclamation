@@ -30,7 +30,7 @@ namespace Reclamation.AI
         public StateType NeedRestState = null;
         public StateType Rested = null;
         public StateType NeedFoodState = null;
-        [FormerlySerializedAs("Satisfied")] public StateType Satiated = null;
+        public StateType Satiated = null;
         
         public StateType NeedWaitState = null;
         public StateType Idle = null;
@@ -66,6 +66,11 @@ namespace Reclamation.AI
         public StateType FreeBed = null;
         public StateType FreeToilet = null;
         public StateType FreeRecipe = null;
+
+        public StateType FindHero = null;
+        public StateType HeroFound = null;
+        public StateType AttackHero = null;
+        public StateType HeroAttacked = null;
         
         private void Awake()
         {

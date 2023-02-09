@@ -123,9 +123,6 @@ namespace Reclamation.Units
             _attributes.CalculateModifiers();
         }
 
-        public void SyncWorldPanel()
-        {
-            //_worldPanel.Sync();
-        }
+        public abstract void SyncData();
     }
 }

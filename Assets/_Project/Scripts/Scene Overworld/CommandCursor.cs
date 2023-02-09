@@ -14,6 +14,8 @@ namespace Reclamation.Scene_Overworld
         [SerializeField] private LayerMask _groundMask = new LayerMask();
         [SerializeField] private LayerMask _heroMask = new LayerMask();
         [SerializeField] private RectTransform _selectionBox = null;
+        [SerializeField] private Transform _formationParent = null;
+        [SerializeField] private List<Transform> _formation = null;
         
         [SerializeField] private HeroListEvent onSelectHeroes = null;
 
@@ -23,6 +25,14 @@ namespace Reclamation.Scene_Overworld
         private void Awake()
         {
             _selectedHeroes = new List<Hero>();
+            _formation = new List<Transform>();
+            
+            foreach (Transform child in _formationParent)
+            {
+                _formation.Add(child);
+            }
+            
+            SetFormationShown(false);
         }
 
         private void Update()
@@ -121,17 +131,43 @@ namespace Reclamation.Scene_Overworld
         
         private bool GroundRaycast(Ray ray)
         {
+            if (_selectedHeroes.Count == 0) return false;
+            
             if (Physics.Raycast(ray, out var hit, 999f, _groundMask))
             {
                 transform.position = hit.point;
+
                 if (InputManager.Instance.GetRightMouseDown())
                 {
-                    foreach (Hero hero in _selectedHeroes)
+                    _formationParent.position = transform.position;
+                    StartCoroutine(SetFormationShown_Delayed(true));
+                }
+
+                else if (Input.GetMouseButton(1))
+                {
+                    _formationParent.LookAt(_selectedHeroes[0].transform.position, Vector3.up);
+                    _formationParent.Rotate(Vector3.up, 180f);
+                    _formationParent.position = transform.position;
+                    _formationParent.Translate(0,0,-1.1f, Space.Self);
+                }
+                
+                else if (Input.GetMouseButtonUp(1))
+                {
+                    if (_selectedHeroes.Count == 1)
                     {
-                        hero.MoveTo(hit.point);
+                        _selectedHeroes[0].MoveTo(_formation[1].position);
                     }
-                    
-                    return true;
+                    else
+                    {
+                        int formationIndex = 0;
+                        foreach (Hero hero in _selectedHeroes)
+                        {
+                            hero.MoveTo(_formation[formationIndex].position);
+                            formationIndex++;
+                        }
+                    }
+
+                    SetFormationShown(false);
                 }
             }
 
@@ -141,6 +177,18 @@ namespace Reclamation.Scene_Overworld
         public void SetActive(bool active)
         {
             gameObject.SetActive(active);
+        }
+
+        private void SetFormationShown(bool shown)
+        {
+            _formationParent.gameObject.SetActive(shown);
+        }
+
+        private IEnumerator SetFormationShown_Delayed(bool shown)
+        {
+            yield return null;
+            
+            SetFormationShown(shown);
         }
     }
 }
