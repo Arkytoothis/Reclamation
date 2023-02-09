@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a4818c578e61484a91a3dcb607a9b9b, type: 3}
+  m_Name: _Recipes Database
+  m_EditorClassIdentifier: 
+  _data:
+    keyData:
+    - Wood Plank
+    - Stone Block
+    valueData:
+    - {fileID: 11400000, guid: 3817df848824c6d448a91f734c329ec2, type: 2}
+    - {fileID: 11400000, guid: 376568b44d0a0f54e9d4e22d8bb4e020, type: 2}

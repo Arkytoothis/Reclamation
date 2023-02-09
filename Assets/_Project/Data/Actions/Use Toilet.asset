@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08a44ab86608bf84892539d642300c87, type: 3}
+  m_Name: Use Toilet
+  m_EditorClassIdentifier: 
+  _actionName: Use Toilet
+  _cost: 1
+  _targetTag: 
+  _duration: 3
+  _maxDistance: 2
+  _removeState: {fileID: 0}
+  _preConditions:
+  - Key: {fileID: 11400000, guid: 64afe806870d3874291b801ab216ef24, type: 2}
+    Value: 0
+  _afterEffects:
+  - Key: {fileID: 11400000, guid: 412999710a373134695162b194eb9340, type: 2}
+    Value: 0

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff98cfbe54ebade43a176ecf5a2cff87, type: 3}
+  m_Name: Wood Log
+  m_EditorClassIdentifier: 
+  _name: Wood Log
+  _key: Wood Log
+  _icon: {fileID: 21300000, guid: e4f96a09aad18434784d41d929487356, type: 3}
+  _dropPrefab: {fileID: 401623056542119545, guid: 17a7f8eb5d938a2409306cff09fc4ace,
+    type: 3}

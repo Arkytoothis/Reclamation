@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a686a47eee2fa44cb0a34b5d86e4d5e, type: 3}
+  m_Name: Miner
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"_position":{"x":6367.0,"y":5869.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"0"},{"_action":{"_node":{"_name":"resourceNode","_targetVariableID":"5fd3acd4-40d9-4106-8d74-9d6bc73aebc1"},"_targetPosition":{"_name":"targetPosition","_targetVariableID":"a1b3a69e-f7a2-4791-9424-c72934f3c831"},"$type":"Reclamation.Behaviors.FindOreNode"},"_position":{"x":5678.0,"y":6030.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"1"},{"_action":{"_isWalking":{"_value":true},"$type":"Reclamation.Behaviors.SetIsWalking"},"_position":{"x":5869.502,"y":6031.516},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"2"},{"_action":{"DestinationPosition":{"_name":"targetPosition","_targetVariableID":"a1b3a69e-f7a2-4791-9424-c72934f3c831"},"OutputPath":{"_name":"currentPath","_targetVariableID":"c507c615-df1e-4836-8242-26a702e5c4e5"},"$type":"NodeCanvasAddons.AStarPathfinding.CreatePathAction"},"_position":{"x":6001.0,"y":6026.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"3"},{"_action":{"Path":{"_name":"currentPath","_targetVariableID":"c507c615-df1e-4836-8242-26a702e5c4e5"},"$type":"NodeCanvasAddons.AStarPathfinding.SeekerProcessPathAction"},"_position":{"x":6152.0,"y":6028.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"4"},{"_subTree":{"_value":1},"_position":{"x":6299.0,"y":6030.0},"$type":"NodeCanvas.BehaviourTrees.SubTree","$id":"5"},{"_action":{"_isWalking":{},"$type":"Reclamation.Behaviors.SetIsWalking"},"_position":{"x":6463.557,"y":6044.179},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"6"},{"_action":{"waitTime":{"_value":1.0},"$type":"NodeCanvas.Tasks.Actions.Wait"},"_position":{"x":6597.684,"y":6040.333},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"7"},{"_action":{"_node":{"_name":"resourceNode","_targetVariableID":"5fd3acd4-40d9-4106-8d74-9d6bc73aebc1"},"$type":"Reclamation.Behaviors.HarvestResource"},"_position":{"x":6716.48,"y":6041.069},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"8"},{"_action":{"minWaitTime":{"_value":0.5},"maxWaitTime":{"_value":2.5},"waitTime":{},"$type":"NodeCanvas.Tasks.Actions.RandomWait"},"_position":{"x":6944.712,"y":6042.333},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"9"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{"targetPosition":{"_name":"targetPosition","_id":"a1b3a69e-f7a2-4791-9424-c72934f3c831","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"resourceNode":{"_name":"resourceNode","_id":"5fd3acd4-40d9-4106-8d74-9d6bc73aebc1","$type":"NodeCanvas.Framework.Variable`1[[Reclamation.Resources.ResourceNode,
+    Reclamation, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
+  _objectReferences:
+  - {fileID: 0}
+  - {fileID: 11400000, guid: c6827f1ad6bed464fb77c9a503b9e310, type: 2}
+  _graphSource:
+    _version: 3.25
+    _category: 
+    _comments: 
+    _translation: {x: -4172, y: -4259}
+    _zoomFactor: 0.74992347
+  _haltSerialization: 0

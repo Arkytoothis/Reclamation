@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a686a47eee2fa44cb0a34b5d86e4d5e, type: 3}
+  m_Name: FollowPath
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"Path":{"_name":"currentPath","_targetVariableID":"4424f8ec-322a-4ffc-a231-3de653592c1d"},"Waypoint":{"_name":"waypoint","_targetVariableID":"1dccb635-5c49-4232-96ce-b1bf39ecc010"},"CurrentIndex":{"_name":"currentIndex","_targetVariableID":"dfc0a4e2-7941-48f4-b25f-b3fcae75a6bc"},"MaxIteration":{},"MaxDuration":{},"MaxDistance":{"_value":2.01},"_position":{"x":5355.0,"y":5191.024},"_comment":"This
+    will iterate round the given _path variable and will also allow us to indicate
+    that we want to listen for path changes. This allows the path that is currently
+    being used to be changed at runtime and the waypoints should seemlessly continue
+    iterating from the correct place. So you can use this and the node based iterator
+    for more complex pathing challenges.","$type":"NodeCanvasAddons.AStarPathfinding.IteratePathVectors","$id":"0"},{"repeaterMode":1,"repeatTimes":{"_value":1},"_position":{"x":5400.0,"y":5325.0},"_comment":"Tells
+    it to keep requesting waypoints until a success is returned","$type":"NodeCanvas.BehaviourTrees.Repeater","$id":"1"},{"_position":{"x":5400.0,"y":5415.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"2"},{"_action":{"Path":{"_name":"currentPath","_targetVariableID":"4424f8ec-322a-4ffc-a231-3de653592c1d"},"PathColor":{"_value":{"g":1.0,"a":1.0}},"TimeToShow":{"_value":0.1},"$type":"NodeCanvasAddons.AStarPathfinding.DrawDebugPathAction"},"_position":{"x":5107.994,"y":5500.0},"_comment":"This
+    is for you to see the paths being drawn in the scene","$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"3"},{"_action":{"Waypoint":{"_name":"waypoint","_targetVariableID":"1dccb635-5c49-4232-96ce-b1bf39ecc010"},"MovementSpeed":{"_name":"MovementSpeed","_targetVariableID":"46bd504b-b115-4388-b192-b4669b61dab8"},"RotationSpeed":{"_name":"RotationSpeed","_targetVariableID":"520f8d9c-048e-4f41-9ed3-1bae89f45d90"},"$type":"NodeCanvasAddons.AStarPathfinding.Examples.MoveTowardsWaypointAction"},"_position":{"x":5360.0,"y":5514.0},"_comment":"This
+    action moves the entity towards the current waypoint","$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"4"},{"_condition":{"Waypoint":{"_name":"waypoint","_targetVariableID":"1dccb635-5c49-4232-96ce-b1bf39ecc010"},"AcceptableDistance":{"_value":1.0},"$type":"NodeCanvasAddons.AStarPathfinding.HasReachedWaypointCondition"},"_position":{"x":5589.0,"y":5491.0},"_comment":"Checks
+    to see if we have reached our waypoint or not","$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"5"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{"waypoint":{"_name":"waypoint","_id":"1dccb635-5c49-4232-96ce-b1bf39ecc010","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"currentIndex":{"_name":"currentIndex","_id":"dfc0a4e2-7941-48f4-b25f-b3fcae75a6bc","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"MovementSpeed":{"_value":5.0,"_name":"MovementSpeed","_id":"46bd504b-b115-4388-b192-b4669b61dab8","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"RotationSpeed":{"_value":10.0,"_name":"RotationSpeed","_id":"520f8d9c-048e-4f41-9ed3-1bae89f45d90","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
+  _objectReferences: []
+  _graphSource:
+    _version: 3.25
+    _category: 
+    _comments: 
+    _translation: {x: -4934, y: -5072}
+    _zoomFactor: 1
+  _haltSerialization: 0

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08a44ab86608bf84892539d642300c87, type: 3}
+  m_Name: Rest
+  m_EditorClassIdentifier: 
+  _actionName: Rest
+  _cost: 1
+  _targetTag: 
+  _duration: 10
+  _maxDistance: 2
+  _preConditions:
+  - Key: {fileID: 11400000, guid: a8ba480f943d0e54eba0c00a6d589378, type: 2}
+    Value: 0
+  _afterEffects:
+  - Key: {fileID: 11400000, guid: a2a3894fd271df646b4b2ba13e589224, type: 2}
+    Value: 0

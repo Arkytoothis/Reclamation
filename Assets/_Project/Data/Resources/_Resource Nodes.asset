@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85a6238afdd5b034baf8d6b83a618346, type: 3}
+  m_Name: _Resource Nodes
+  m_EditorClassIdentifier: 
+  _data:
+    keyData:
+    - Coal Node
+    - Stone Node
+    - Tree Node Large
+    - Tree Node Medium
+    - Tree Node Small
+    - Copper Node
+    - Iron Node
+    - Berry Bush
+    valueData:
+    - {fileID: 11400000, guid: 52fa9d42b46df4d4cba3a527f479bb69, type: 2}
+    - {fileID: 11400000, guid: 0d457d61e10005e448b00c7b95a8c2c0, type: 2}
+    - {fileID: 11400000, guid: bd76dbebaa9ddb143819bc22a78b7c67, type: 2}
+    - {fileID: 11400000, guid: 39919927f8f925f41bfdaa310ad5d521, type: 2}
+    - {fileID: 11400000, guid: 88b3428e3627c0c4ab380134ccda1402, type: 2}
+    - {fileID: 11400000, guid: 0a67261651a02934282d1a4b75418001, type: 2}
+    - {fileID: 11400000, guid: f5247988acf0f144e83666e41f22d896, type: 2}
+    - {fileID: 11400000, guid: 04e00b83aac52fd4396e6ccdbc9a7d2e, type: 2}

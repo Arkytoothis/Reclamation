@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a686a47eee2fa44cb0a34b5d86e4d5e, type: 3}
+  m_Name: Gatherer
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"dynamic":true,"_position":{"x":318.0,"y":-60.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"0"},{"_position":{"x":265.9913,"y":62.51208},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"1"},{"_condition":{"$type":"Reclamation.Behaviors.ResourceFull"},"_position":{"x":-377.0674,"y":208.7543},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"2"},{"_action":{"_storageObject":{"_name":"targetStorageObject","_targetVariableID":"3233298d-09aa-4078-8ebe-2f6f02c15dcc"},"_targetPosition":{"_name":"storagePosition","_targetVariableID":"2de6ad7d-e4cb-4603-8231-96925633fb6e"},"$type":"Reclamation.Behaviors.FindStorageObject"},"_position":{"x":-244.2647,"y":216.0404},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"3"},{"_action":{"_targetPosition":{"_name":"storagePosition","_targetVariableID":"2de6ad7d-e4cb-4603-8231-96925633fb6e"},"keepDistance":{"_value":1.0},"$type":"NodeCanvas.Tasks.Actions.HeroMoveToPosition"},"_position":{"x":-23.62534,"y":211.3351},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"4"},{"_action":{"_storageObject":{"_name":"targetStorageObject","_targetVariableID":"3233298d-09aa-4078-8ebe-2f6f02c15dcc"},"$type":"Reclamation.Behaviors.StoreResource"},"_position":{"x":152.9855,"y":212.2158},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"5"},{"_position":{"x":394.7591,"y":67.04523},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"6"},{"_action":{"_drop":{"_name":"targetDrop","_targetVariableID":"e6133bed-96fa-4e77-a75a-2233902de98a"},"_targetPosition":{"_name":"targetPosition","_targetVariableID":"03015bb0-a1e3-4807-b364-3dcdc50dc662"},"$type":"Reclamation.Behaviors.FindResourceDrop"},"_position":{"x":406.2411,"y":211.592},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"7"},{"_action":{"_targetPosition":{"_name":"targetPosition","_targetVariableID":"03015bb0-a1e3-4807-b364-3dcdc50dc662"},"keepDistance":{"_value":1.0},"$type":"NodeCanvas.Tasks.Actions.HeroMoveToPosition"},"_position":{"x":624.4946,"y":215.0257},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"8"},{"_action":{"_drop":{"_name":"targetDrop","_targetVariableID":"e6133bed-96fa-4e77-a75a-2233902de98a"},"$type":"Reclamation.Behaviors.PickupResourceDrop"},"_position":{"x":800.1826,"y":205.3188},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"9"},{"_action":{"minWaitTime":{"_value":1.0},"maxWaitTime":{"_value":2.0},"waitTime":{},"$type":"NodeCanvas.Tasks.Actions.RandomWait"},"_position":{"x":1039.594,"y":208.3956},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"10"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"10"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{"targetDrop":{"_name":"targetDrop","_id":"e6133bed-96fa-4e77-a75a-2233902de98a","$type":"NodeCanvas.Framework.Variable`1[[Reclamation.Resources.ResourceDrop,
+    Reclamation, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"targetPosition":{"_name":"targetPosition","_id":"03015bb0-a1e3-4807-b364-3dcdc50dc662","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"targetStorageObject":{"_name":"targetStorageObject","_id":"3233298d-09aa-4078-8ebe-2f6f02c15dcc","$type":"NodeCanvas.Framework.Variable`1[[Reclamation.Interactables.StorageObject,
+    Reclamation, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"storagePosition":{"_name":"storagePosition","_id":"2de6ad7d-e4cb-4603-8231-96925633fb6e","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
+  _objectReferences: []
+  _graphSource:
+    _version: 3.25
+    _category: 
+    _comments: 
+    _translation: {x: 314.9999, y: 211.99995}
+    _zoomFactor: 0.3712267
+  _haltSerialization: 0

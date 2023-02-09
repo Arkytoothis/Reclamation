@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e0e375cf0b166a408b490dad296b5f8, type: 3}
+  m_Name: _Profession Database
+  m_EditorClassIdentifier: 
+  _professions:
+    keyData:
+    - Acolyte
+    - Apprentice
+    - Scout
+    - Soldier
+    - Thief
+    - Mercenary
+    - Builder
+    - Forester
+    - Laborer
+    - Miner
+    - Crafter
+    - Forager
+    valueData:
+    - {fileID: 11400000, guid: 56c9a393b6f6b1540bb4951b99d9355c, type: 2}
+    - {fileID: 11400000, guid: 9f2e0cc190500e6479ead0dd521bb399, type: 2}
+    - {fileID: 11400000, guid: 0c5de8688e8ef7d4f8e0b671c9b7567d, type: 2}
+    - {fileID: 11400000, guid: a101c51b8b77ad944bdbe08ae10cd7bc, type: 2}
+    - {fileID: 11400000, guid: 7b07695245bfbb44ba9cb429919e1cab, type: 2}
+    - {fileID: 11400000, guid: aba43cf64ffb1f147bf891be832104f0, type: 2}
+    - {fileID: 11400000, guid: 80c5a8d838a0bea439c84d66f4cbb864, type: 2}
+    - {fileID: 11400000, guid: 9ff5d184840da20468847f3a9c437831, type: 2}
+    - {fileID: 11400000, guid: f9ecaf9ad836f15438b49b25fe6cdfe1, type: 2}
+    - {fileID: 11400000, guid: 4207d7220631fc54c92010e847598dbf, type: 2}
+    - {fileID: 11400000, guid: 3718ebca99dabbc4f9dd1a560ed869ba, type: 2}
+    - {fileID: 11400000, guid: 8364503792a773149a4e852f0d05d122, type: 2}

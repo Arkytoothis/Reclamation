@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15163ab89601c0948bb564250400fe6b, type: 3}
+  m_Name: Iron Node
+  m_EditorClassIdentifier: 
+  _name: Iron Node
+  _key: Iron Node
+  _minDrops: 3
+  _maxDrops: 5
+  _specialNodeChance: 84
+  _minDistance: 100
+  _nodePrefab: {fileID: 1182756067964316, guid: e01d32927ca49b044810d7187c620991,
+    type: 3}
+  _dropPrefab: {fileID: 401623056542119545, guid: c54ea97266e200e43b7e7cec2189dbb3,
+    type: 3}

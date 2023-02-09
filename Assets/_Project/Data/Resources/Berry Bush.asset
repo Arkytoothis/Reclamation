@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15163ab89601c0948bb564250400fe6b, type: 3}
+  m_Name: Berry Bush
+  m_EditorClassIdentifier: 
+  _name: Berry Bush
+  _key: Berry Bush
+  _minDrops: 3
+  _maxDrops: 6
+  _specialNodeChance: 0
+  _minDistance: 35
+  _nodePrefab: {fileID: 810714600694060137, guid: a860d4e04265fb245b82cbb592e1cf78,
+    type: 3}
+  _dropPrefab: {fileID: 401623056542119545, guid: 01922ff4ef102c34696fe70012df0b8f,
+    type: 3}

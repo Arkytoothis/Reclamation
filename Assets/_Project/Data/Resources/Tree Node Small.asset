@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15163ab89601c0948bb564250400fe6b, type: 3}
+  m_Name: Tree Node Small
+  m_EditorClassIdentifier: 
+  _name: Tree Node Small
+  _key: Tree Node Small
+  _minNodes: 1
+  _maxNodes: 3
+  _minDrops: 1
+  _maxDrops: 2
+  _dropPrefab: {fileID: 401623056542119545, guid: 17a7f8eb5d938a2409306cff09fc4ace,
+    type: 3}
