@@ -118,6 +118,11 @@ namespace Reclamation.Core
     }
     
     [Serializable]
+    public class EnemyDefinitionDictionary : SerializedDictionary<string, EnemyDefinition>
+    {
+    }
+    
+    [Serializable]
     public class RaceDictionary : SerializedDictionary<string, RaceDefinition>
     {
     }

@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace Reclamation.Units
 {
-    public class Hero : Unit
+    public class Hero : Unit, IDamageSystem
     {
         [SerializeField] protected HeroData _heroData = null;
         [SerializeField] private GameObject _worldModel = null;
@@ -220,7 +220,8 @@ namespace Reclamation.Units
         {
             if (_isAlive == false) return;
 
-            //_damageSystem.TakeDamage(attacker, damage, vital);
+            _attributes.ModifyVital("Life", damage, false);
+            Debug.Log(_heroData.Name.ShortName + " takes " + damage + " " + vital + " damage");
             //CombatTextHandler.Instance.DisplayCombatText(new CombatText(_combatTextTransform.position, damage.ToString(), "default"));
 
             if (GetHealth() <= 0)
@@ -228,7 +229,12 @@ namespace Reclamation.Units
                 Dead();
             }
 
-            if(_isSelected) onSyncHero.Invoke(this);
+            if (_isSelected)
+            {
+                onSyncHero.Invoke(this);
+            }
+            
+            _worldPanel.SyncData();
         }
 
         public override void RestoreVital(string vital, int amount)
@@ -306,6 +312,11 @@ namespace Reclamation.Units
         {
             _taskController.SetState(UnitStates.Working);
             _worldPanel.SyncData();
+        }
+
+        public void TakeDamage(GameObject attacker, int amount, string vital)
+        {
+            Damage(attacker, null, amount, vital);
         }
     }
 }

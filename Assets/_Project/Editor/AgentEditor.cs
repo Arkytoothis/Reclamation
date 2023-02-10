@@ -16,12 +16,15 @@ namespace Reclamation.AI
             AgentVisual agentVisual = (AgentVisual)target;
             GUILayout.Label("Name: " + agentVisual.name);
 
-            if (agentVisual.agent == null) return;
+            if (agentVisual.Agent == null) return;
             
-            GUILayout.Label("Current Action: " + agentVisual.agent.CurrentAction);
+            GUILayout.Label("Current Action: " + agentVisual.Agent.CurrentAction);
+            
+            GUILayout.Label("End Reached Distance: " + agentVisual.RichAI.endReachedDistance);
+            GUILayout.Label("Distance To Target: " + agentVisual.RichAI.remainingDistance);
             
             GUILayout.Label("Actions: ");
-            foreach (Action action in agentVisual.agent.Actions)
+            foreach (Action action in agentVisual.Agent.Actions)
             {
                 if(action.IsEnabled == false) continue;
                 
@@ -37,16 +40,16 @@ namespace Reclamation.AI
             }
 
             GUILayout.Label("Action Queue: ");
-            if (agentVisual.agent.ActionQueue != null)
+            if (agentVisual.Agent.ActionQueue != null)
             {
-                string actionString = agentVisual.agent.ActionQueue.Count + ": ";
+                string actionString = agentVisual.Agent.ActionQueue.Count + ": ";
                 
                 int index = 0;
-                foreach (Action action in agentVisual.agent.ActionQueue)
+                foreach (Action action in agentVisual.Agent.ActionQueue)
                 {
                     actionString += action.ActionName;
                 
-                    if (index != agentVisual.agent.ActionQueue.Count - 1)
+                    if (index != agentVisual.Agent.ActionQueue.Count - 1)
                     {
                         actionString += ", ";
                     }
@@ -59,7 +62,7 @@ namespace Reclamation.AI
             
 
             GUILayout.Label("Goals: ");
-            foreach (KeyValuePair<SubGoal, int> goal in agentVisual.agent.Goals)
+            foreach (KeyValuePair<SubGoal, int> goal in agentVisual.Agent.Goals)
             {
                 foreach (KeyValuePair<string, int> subGoal in goal.Key.SubGoals)
                 {
@@ -68,18 +71,18 @@ namespace Reclamation.AI
             }
 
             GUILayout.Label("Beliefs: ");
-            if (agentVisual.agent.Beliefs != null)
+            if (agentVisual.Agent.Beliefs != null)
             {
-                foreach (KeyValuePair<string, int> state in agentVisual.agent.Beliefs.States)
+                foreach (KeyValuePair<string, int> state in agentVisual.Agent.Beliefs.States)
                 {
                     GUILayout.Label("  " + state.Key + " - " + state.Value);
                 }
             }
 
             GUILayout.Label("Inventory: ");
-            if (agentVisual.agent.TargetController != null)
+            if (agentVisual.Agent.TargetController != null)
             {
-                foreach (GameObject g in agentVisual.agent.TargetController.TargetList)
+                foreach (GameObject g in agentVisual.Agent.TargetController.TargetList)
                 {
                     if (g != null)
                     {

@@ -14,6 +14,7 @@ namespace Reclamation.Gui
         [SerializeField] private Image _actionIcon = null;
         [SerializeField] private Image _itemIcon = null;
         [SerializeField] private TMP_Text _itemsCarried = null;
+        [SerializeField] private VitalBar _lifeBar = null;
         
         private Hero _hero = null;
         
@@ -31,6 +32,8 @@ namespace Reclamation.Gui
 
         public void SyncData()
         {
+            _lifeBar.UpdateData(_hero.Attributes.GetVital("Life").Current, _hero.Attributes.GetVital("Life").Maximum);
+            
             if (_hero.PlayerAgent == null || _hero.PlayerAgent.CurrentAction == null)
             {
                 _actionIcon.sprite = null;

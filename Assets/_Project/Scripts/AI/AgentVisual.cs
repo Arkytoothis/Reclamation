@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Pathfinding;
 using UnityEngine;
 
 namespace Reclamation.AI
@@ -8,12 +9,15 @@ namespace Reclamation.AI
     public class AgentVisual : MonoBehaviour
     {
         private Agent _agent;
+        private RichAI _richAI;
 
-        public Agent agent => _agent;
+        public Agent Agent => _agent;
+        public RichAI RichAI => _richAI;
 
         void Start()
         {
             _agent = GetComponent<Agent>();
+            _richAI = GetComponent<RichAI>();
         }
     }
 }

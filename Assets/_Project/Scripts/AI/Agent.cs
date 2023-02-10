@@ -14,6 +14,7 @@ namespace Reclamation.AI
         [SerializeField] protected List<Action> _actions = new List<Action>();
 
         protected Unit _unit = null;
+        protected RichAI _richAi = null;
         protected Dictionary<SubGoal, int> _goals = new Dictionary<SubGoal, int>();
         protected Planner _planner = null;
         protected Queue<Action> _actionQueue = null;
@@ -38,6 +39,7 @@ namespace Reclamation.AI
         private void Awake()
         {
             _unit = GetComponent<Unit>();
+            _richAi = GetComponent<RichAI>();
             SetupActions();
             _beliefs = new WorldStates();
         }
@@ -66,8 +68,8 @@ namespace Reclamation.AI
                     {
                         if (!_invoked)
                         {
-                            GetComponent<RichAI>().isStopped = true;
                             Invoke("CompleteAction", _currentAction.Duration);
+                            _richAi.isStopped = true;
                             _invoked = true;
                         }
                     }
@@ -122,7 +124,7 @@ namespace Reclamation.AI
                                 _destination = interactionPoint.position;
                             }
 
-                            GetComponent<RichAI>().isStopped = false;
+                            _richAi.isStopped = false;
                             _currentAction.Seeker.StartPath(transform.position, _destination);
                         }
                     }

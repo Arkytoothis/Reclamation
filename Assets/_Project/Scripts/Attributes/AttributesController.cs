@@ -69,26 +69,26 @@ namespace Reclamation.Attributes
             // }
         }
         
-        // public void Setup(EnemyDefinition definition)
-        // {
-        //     _characteristics.Clear();
-        //     _vitals.Clear();
-        //     _statistics.Clear();
-        //     
-        //     foreach (var startingVital in definition.StartingVitals)
-        //     {
-        //         int value = Random.Range(startingVital.Value.MinimumValue, startingVital.Value.MaximumValue + 1);
-        //         _vitals.Add(startingVital.Key, new Attribute(startingVital.Key));
-        //         _vitals[startingVital.Key].Setup(value);
-        //     }
-        //
-        //     foreach (var startingStatistic in definition.StartingStatistic)
-        //     {
-        //         int value = Random.Range(startingStatistic.Value.MinimumValue, startingStatistic.Value.MaximumValue + 1);
-        //         _statistics.Add(startingStatistic.Key, new Attribute(startingStatistic.Key));
-        //         _statistics[startingStatistic.Key].Setup(value);
-        //     }
-        // }
+        public void Setup(EnemyDefinition definition)
+        {
+            _characteristics.Clear();
+            _vitals.Clear();
+            _statistics.Clear();
+            
+            foreach (var startingVital in definition.StartingVitals)
+            {
+                int value = Random.Range(startingVital.Value.MinimumValue, startingVital.Value.MaximumValue + 1);
+                _vitals.Add(startingVital.Key, new Attribute(startingVital.Key));
+                _vitals[startingVital.Key].Setup(value);
+            }
+        
+            foreach (var startingStatistic in definition.StartingStatistics)
+            {
+                int value = Random.Range(startingStatistic.Value.MinimumValue, startingStatistic.Value.MaximumValue + 1);
+                _statistics.Add(startingStatistic.Key, new Attribute(startingStatistic.Key));
+                _statistics[startingStatistic.Key].Setup(value);
+            }
+        }
 
         private void ResetModifiers()
         {

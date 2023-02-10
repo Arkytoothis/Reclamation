@@ -6,15 +6,15 @@ using UnityEngine;
 
 namespace Reclamation.AI
 {
-    public class FindHeroToAttack : Action
+    public class FindEnemyToAttack : Action
     {
-        private Hero _heroTarget = null;
+        private Enemy _enemyTarget = null;
         
         public override bool PrePerform()
         {
-            _heroTarget = _targetController.FindTarget<Hero>();
+            _enemyTarget = _targetController.FindTarget<Enemy>();
 
-            if (_heroTarget != null)
+            if (_enemyTarget != null)
             {
                 //Debug.Log("I Already Have A Target");
                 if (Vector3.Distance(transform.position, _target.transform.position) > _maxDistance)
@@ -26,12 +26,12 @@ namespace Reclamation.AI
                 return true;
             }
 
-            _heroTarget = HeroManager.Instance.FindClosestHero(transform);
+            _enemyTarget = EnemyManager.Instance.FindClosestEnemy(transform);
             
-            if(_heroTarget == null) return false;
+            if(_enemyTarget == null) return false;
 
             //Debug.Log("New Target Found");
-            _target = _heroTarget.gameObject;
+            _target = _enemyTarget.gameObject;
             _targetController.AddTarget(_target);
             
             if (Vector3.Distance(transform.position, _target.transform.position) > _maxDistance)
