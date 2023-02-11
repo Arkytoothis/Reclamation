@@ -20,7 +20,7 @@ namespace Reclamation.Units
 
         private PlayerAgent _playerAgent = null;
         private AgentVisual _agentVisual = null;
-        private HeroPathfinder _pathfinder = null;
+        private UnitPathfinder _pathfinder = null;
         private HeroWorldPanel _worldPanel = null;
         private float _nextInterval = 0f;
         
@@ -30,7 +30,7 @@ namespace Reclamation.Units
         {
             _playerAgent = GetComponent<PlayerAgent>();
             _agentVisual = GetComponent<AgentVisual>();
-            _pathfinder = GetComponent<HeroPathfinder>();
+            _pathfinder = GetComponent<UnitPathfinder>();
             _worldPanel = GetComponentInChildren<HeroWorldPanel>();
         }
 

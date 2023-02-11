@@ -15,7 +15,6 @@ namespace Reclamation.Units
         [SerializeField] protected HeroData _heroData = null;
         [SerializeField] private GameObject _worldModel = null;
         [SerializeField] private GameObject _portraitModel = null;
-        [SerializeField] private HeroPathfinder _pathfinder = null;
         [SerializeField] private UnitResourceController _resourceController = null;
         [SerializeField] private ActionController _actionController = null;
         [SerializeField] private TaskController _taskController = null;
@@ -76,8 +75,8 @@ namespace Reclamation.Units
             _actionController.Setup();
             _actionController.SetActionEnabled(StateManager.Instance.ChopWoodActionName, false);
             _actionController.SetActionEnabled(StateManager.Instance.MineOreActionName, false);
-            //_actionController.SetActionEnabled(StateManager.Instance.GatherResourceActionName, false);
-            //_actionController.SetActionEnabled(StateManager.Instance.StoreResourceActionName, false);
+            _actionController.SetActionEnabled(StateManager.Instance.GatherResourceActionName, false);
+            _actionController.SetActionEnabled(StateManager.Instance.StoreResourceActionName, false);
             
             _actionController.SetActionEnabled(StateManager.Instance.FindRecipeActionName, false);
             _actionController.SetActionEnabled(StateManager.Instance.PickupItemForCraftActionName, false);
@@ -89,13 +88,15 @@ namespace Reclamation.Units
             _actionController.SetActionEnabled(StateManager.Instance.DropoffItemForBlueprintActionName, false);
             _actionController.SetActionEnabled(StateManager.Instance.BuildBlueprintActionName, false);
             
-            _playerAgent.AddGoal(StateManager.Instance.ResourceStored.Name, 1, false, 1);
-            
+            _actionController.SetActionEnabled(StateManager.Instance.FindEnemyToAttackActionName, false);
+            _actionController.SetActionEnabled(StateManager.Instance.AttackEnemyActionName, false);
+
             if (profession.DefaultJob == JobTypes.Soldier)
             {
-                //_actionController.SetActionEnabled(StateManager.Instance.ChopWoodActionName, true);
-                //_playerAgent.AddGoal(StateManager.Instance.WoodChopped.Name, 1, false, 1);
-                //_playerAgent.ModifyState(StateManager.Instance.ChopWoodState.Name, 0);
+                _actionController.SetActionEnabled(StateManager.Instance.FindEnemyToAttackActionName, true);
+                _actionController.SetActionEnabled(StateManager.Instance.AttackEnemyActionName, true);
+                _playerAgent.AddGoal(StateManager.Instance.EnemyAttacked.Name, 1, false, 1);
+                _playerAgent.ModifyState(StateManager.Instance.FindEnemy.Name, 0);
             }
             else if (profession.DefaultJob == JobTypes.Forester)
             {
@@ -113,9 +114,8 @@ namespace Reclamation.Units
             {
                 _actionController.SetActionEnabled(StateManager.Instance.GatherResourceActionName, true);
                 _actionController.SetActionEnabled(StateManager.Instance.StoreResourceActionName, true);
-                //agent.AddGoal(StateManager.Instance.ResourceGathered.Name, 1, false, 1);
+                _playerAgent.AddGoal(StateManager.Instance.ResourceStored.Name, 1, false, 1);
                 _playerAgent.ModifyState(StateManager.Instance.GatherResourceState.Name, 0);
-                //agent.ModifyState(StateManager.Instance.PickupResourceState.Name, 0);
             }
             else if (profession.DefaultJob == JobTypes.Miner)
             {
@@ -221,7 +221,7 @@ namespace Reclamation.Units
             if (_isAlive == false) return;
 
             _attributes.ModifyVital("Life", damage, false);
-            Debug.Log(_heroData.Name.ShortName + " takes " + damage + " " + vital + " damage");
+            //Debug.Log(_heroData.Name.ShortName + " takes " + damage + " " + vital + " damage");
             //CombatTextHandler.Instance.DisplayCombatText(new CombatText(_combatTextTransform.position, damage.ToString(), "default"));
 
             if (GetHealth() <= 0)
@@ -255,7 +255,7 @@ namespace Reclamation.Units
         {
             _isAlive = false;
             //HeroManager_Combat.Instance.UnitDead(this);
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
 
         public void SetPortrait(PortraitMount portraitMount)
@@ -296,6 +296,11 @@ namespace Reclamation.Units
             _pathfinder.MoveTo(position);
         }
 
+        public void SetDestination(Transform destination)
+        {
+            _pathfinder.SetDestination(destination);    
+        }
+        
         public override void SyncData()
         {
             onSyncHero.Invoke(this);

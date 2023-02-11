@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Reclamation.Units
@@ -35,6 +36,8 @@ namespace Reclamation.Units
 
         public Enemy FindClosestEnemy(Transform searcher)
         {
+            if (_enemies == null || _enemies.Count == 0) return null;
+            
             _enemies.Sort(delegate(Enemy a, Enemy b)
             {
                 return Vector3.Distance(searcher.position,a.transform.position)
@@ -42,6 +45,14 @@ namespace Reclamation.Units
             });
                 
             return _enemies[0];
+        }
+
+        public void RemoveEnemy(Enemy enemy)
+        {
+            if (_enemies.Contains(enemy))
+            {
+                _enemies.Remove(enemy);
+            }
         }
     }
 }

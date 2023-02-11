@@ -20,7 +20,7 @@ namespace Reclamation.AI
                 if (Vector3.Distance(transform.position, _target.transform.position) > _maxDistance)
                 {
                     //Debug.Log("Move Closer To Target");
-                    _richAI.canMove = true;
+                    //_richAI.canMove = true;
                 }
                 
                 return true;
@@ -37,7 +37,7 @@ namespace Reclamation.AI
             if (Vector3.Distance(transform.position, _target.transform.position) > _maxDistance)
             {
                 //Debug.Log("Moving Closer To Target");
-                _richAI.canMove = true;
+                //_richAI.canMove = true;
             }
 
             return true;
@@ -46,7 +46,7 @@ namespace Reclamation.AI
         public override bool PostPerform()
         {
             //Debug.Log("Target Reached");
-            _richAI.canMove = false;
+            //_richAI.canMove = false;
             
             return true;
         }

@@ -435,6 +435,8 @@ GameObject:
   - component: {fileID: 7823905320431642523}
   - component: {fileID: 3118248849447573410}
   - component: {fileID: 8661653876606544083}
+  - component: {fileID: 6402665264573219642}
+  - component: {fileID: 1051537922749803284}
   m_Layer: 7
   m_Name: Action Controller
   m_TagString: Untagged
@@ -931,6 +933,60 @@ MonoBehaviour:
   _afterEffects:
   - Key: {fileID: 11400000, guid: 3b12847c022d9cc45addcc7c5782c6e0, type: 2}
     Value: 0
+--- !u!114 &6402665264573219642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6210525146554862587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4429b1b64461e0549bed2850c8da0947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isRunning: 0
+  _isEnabled: 1
+  _actionName: Find Enemy To Attack
+  _icon: {fileID: 21300000, guid: 6375ee604922547709d4cba093674eac, type: 3}
+  _cost: 1
+  _target: {fileID: 0}
+  _targetTag: 
+  _duration: 0
+  _maxDistance: 2
+  _preConditions:
+  - Key: {fileID: 11400000, guid: 76ce78a1ca6776f45b1502ca0540f1ae, type: 2}
+    Value: 0
+  _afterEffects:
+  - Key: {fileID: 11400000, guid: 5dc14c8d9f1c21d48811b7b6f757ef11, type: 2}
+    Value: 0
+--- !u!114 &1051537922749803284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6210525146554862587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f57fc405b65c194b8376251ce716a4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isRunning: 0
+  _isEnabled: 1
+  _actionName: Attack Enemy
+  _icon: {fileID: 21300000, guid: 0d17362f56f054fb6b9d751d8c84c78f, type: 3}
+  _cost: 1
+  _target: {fileID: 0}
+  _targetTag: 
+  _duration: 2
+  _maxDistance: 2
+  _preConditions:
+  - Key: {fileID: 11400000, guid: 5dc14c8d9f1c21d48811b7b6f757ef11, type: 2}
+    Value: 0
+  _afterEffects:
+  - Key: {fileID: 11400000, guid: 745c2cbed5664ba48b9b32bab4831e71, type: 2}
+    Value: 0
 --- !u!1 &6230883258367259830
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,6 +1292,7 @@ GameObject:
   - component: {fileID: 3304233807055338462}
   - component: {fileID: 8522371343618297202}
   - component: {fileID: 3428722414626105883}
+  - component: {fileID: 3687908127977120996}
   - component: {fileID: 8709058932780367883}
   - component: {fileID: 1649184180069235718}
   - component: {fileID: 6143221770822169312}
@@ -1299,10 +1356,10 @@ MonoBehaviour:
   _abilities: {fileID: 8024329353859282506}
   _unitEffects: {fileID: 8024329353028132483}
   _animationEvents: {fileID: 0}
+  _pathfinder: {fileID: 8522371343618297202}
   _heroData: {fileID: 8024329353247326491}
   _worldModel: {fileID: 0}
   _portraitModel: {fileID: 0}
-  _pathfinder: {fileID: 8522371343618297202}
   _resourceController: {fileID: 3080322854972345781}
   _actionController: {fileID: 4923812227623818257}
   _taskController: {fileID: 3055830839649153322}
@@ -1480,6 +1537,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _seeker: {fileID: 8024329353223017936}
   _richAi: {fileID: 4414540343213032275}
+  _destinationSetter: {fileID: 3687908127977120996}
 --- !u!114 &3428722414626105883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1495,6 +1553,20 @@ MonoBehaviour:
   version: 1
   unwrap: 1
   splitAtEveryPortal: 0
+--- !u!114 &3687908127977120996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8024329353223017948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  target: {fileID: 0}
 --- !u!114 &8709058932780367883
 MonoBehaviour:
   m_ObjectHideFlags: 0

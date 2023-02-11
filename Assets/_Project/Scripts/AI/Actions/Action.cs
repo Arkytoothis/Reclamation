@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Pathfinding;
+using Reclamation.Units;
 using UnityEngine;
 
 namespace Reclamation.AI
@@ -20,8 +21,9 @@ namespace Reclamation.AI
         [SerializeField] protected WorldState[] _preConditions;
         [SerializeField] protected WorldState[] _afterEffects;
         
-        protected Seeker _seeker = null;
-        protected RichAI _richAI = null;
+        //protected Seeker _seeker = null;
+        //protected RichAI _richAI = null;
+        protected UnitPathfinder _unitPathfinder = null;
         protected TargetController _targetController = null;
         protected WorldStates _beliefs;
         protected Dictionary<string, int> _conditionsDictionary;
@@ -34,13 +36,14 @@ namespace Reclamation.AI
         public float MaxDistance => _maxDistance;
         public WorldState[] PreConditions => _preConditions;
         public WorldState[] AfterEffects => _afterEffects;
-        public Seeker Seeker => _seeker;
+        //public Seeker Seeker => _seeker;
         public TargetController TargetController => _targetController;
         public WorldStates Beliefs => _beliefs;
-        public RichAI RichAI => _richAI;
+        //public RichAI RichAI => _richAI;
         public Sprite Icon => _icon;
         public Dictionary<string, int> conditionsDictionary => _conditionsDictionary;
         public Dictionary<string, int> effectsDictionary => _effectsDictionary;
+        public UnitPathfinder Pathfinder => _unitPathfinder;
 
         public bool IsRunning
         {
@@ -68,8 +71,7 @@ namespace Reclamation.AI
 
         private void Awake()
         {
-            _seeker = GetComponentInParent<Seeker>();
-            _richAI = GetComponentInParent<RichAI>();
+            _unitPathfinder = GetComponentInParent<UnitPathfinder>();
             
             if (_preConditions != null)
             {

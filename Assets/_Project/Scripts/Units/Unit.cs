@@ -25,9 +25,9 @@ namespace Reclamation.Units
         [SerializeField] protected InventoryController _inventory = null;
         [SerializeField] protected AbilityController _abilities = null;
         //[SerializeField] protected RagdollSpawner _ragdollSpawner = null;
-        //[SerializeField] protected UnitWorldPanel _worldPanel = null;
         [SerializeField] protected UnitEffects _unitEffects = null;
         [SerializeField] protected AnimationEvents _animationEvents = null;
+        [SerializeField] protected UnitPathfinder _pathfinder = null;
         
         public abstract void SpendActionPoints(int actionPointCost);
         

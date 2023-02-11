@@ -96,7 +96,9 @@ namespace Reclamation.Units
 
         protected override void Dead()
         {
-            
+            _isAlive = false;
+            EnemyManager.Instance.RemoveEnemy(this);
+            Destroy(gameObject);
         }
 
         public override void SyncData()
@@ -108,6 +110,11 @@ namespace Reclamation.Units
         public void TakeDamage(GameObject attacker, int amount, string vital)
         {
             Damage(attacker, null, amount, vital);
+        }
+
+        public void SetDestination(Transform destination)
+        {
+            _pathfinder.SetDestination(destination);    
         }
     }
 }

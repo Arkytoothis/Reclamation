@@ -22,7 +22,7 @@ namespace Reclamation.AI
         protected SubGoal _currentGoal = null;
         protected bool _invoked = false;
         protected WorldStates _beliefs;
-        protected Vector3 _destination = Vector3.zero;
+        protected Transform _destination = null;
         protected TargetController _targetController = null;
 
         public List<Action> Actions => _actions;
@@ -34,7 +34,7 @@ namespace Reclamation.AI
         public bool Invoked => _invoked;
         public TargetController TargetController => _targetController;
         public WorldStates Beliefs => _beliefs;
-        public Vector3 Destination => _destination;
+        public Transform Destination => _destination;
 
         private void Awake()
         {
@@ -64,7 +64,7 @@ namespace Reclamation.AI
                 
                 if (_currentAction != null && _currentAction.IsRunning && _currentAction.IsEnabled)
                 {
-                    if (_currentAction.RichAI.remainingDistance < _currentAction.MaxDistance)
+                    if (_currentAction.Pathfinder.GetRemainingDistance() < _currentAction.MaxDistance)
                     {
                         if (!_invoked)
                         {
@@ -117,15 +117,16 @@ namespace Reclamation.AI
                         if (_currentAction.Target != null)
                         {
                             _currentAction.IsRunning = true;
-                            _destination = _currentAction.Target.transform.position;
+                            _destination = _currentAction.Target.transform;
                             Transform interactionPoint = _currentAction.Target.transform.Find("Interaction Point");
                             if (interactionPoint != null)
                             {
-                                _destination = interactionPoint.position;
+                                _destination = interactionPoint;
                             }
 
                             _richAi.isStopped = false;
-                            _currentAction.Seeker.StartPath(transform.position, _destination);
+                            //_currentAction.Seeker.StartPath(transform.position, _destination.position);
+                            _currentAction.Pathfinder.SetDestination(_destination);
                         }
                     }
                     else

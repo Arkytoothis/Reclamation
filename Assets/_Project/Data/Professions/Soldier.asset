@@ -18,7 +18,7 @@ MonoBehaviour:
   _nameMale: Soldier
   _nameFemale: Soldier
   _icon: {fileID: 0}
-  _defaultJob: 2
+  _defaultJob: 6
   _startingCharacteristics:
     keyData:
     - Might

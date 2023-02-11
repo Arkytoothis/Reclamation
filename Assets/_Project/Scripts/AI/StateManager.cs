@@ -24,6 +24,8 @@ namespace Reclamation.AI
         public string FindRecipeActionName = "Find Recipe To Craft";
         public string FindBlueprintActionName = "Find Blueprint To Build";
         public string HarvestPlantsActionName = "Harvest Plants";
+        public string AttackEnemyActionName = "Attack Enemy";
+        public string FindEnemyToAttackActionName = "Find Enemy To Attack";
         
         public StateType NeedReliefState = null;
         public StateType Relieved = null;
@@ -71,6 +73,11 @@ namespace Reclamation.AI
         public StateType HeroFound = null;
         public StateType AttackHero = null;
         public StateType HeroAttacked = null;
+        
+        public StateType FindEnemy = null;
+        public StateType EnemyFound = null;
+        public StateType AttackEnemy = null;
+        public StateType EnemyAttacked = null;
         
         private void Awake()
         {
