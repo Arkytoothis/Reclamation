@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Pathfinding;
 using Reclamation.Units;
 using UnityEngine;
 
@@ -14,31 +13,24 @@ namespace Reclamation.AI
         {
             _heroTarget = _targetController.FindTarget<Hero>();
 
-            if (_heroTarget != null)
+            if (_heroTarget == null)
             {
                 //Debug.Log("I Already Have A Target");
-                if (Vector3.Distance(transform.position, _target.transform.position) > _maxDistance)
-                {
-                    //Debug.Log("Move Closer To Target");
-                    //_richAI.canMove = true;
-                }
-                
-                return true;
+                _heroTarget = HeroManager.Instance.FindClosestHero(transform);
             }
 
-            _heroTarget = HeroManager.Instance.FindClosestHero(transform);
+            if (_heroTarget == null)
+            {
+                _agent.UnitPathfinder.Restart();
+                return false;
+            }
             
-            if(_heroTarget == null) return false;
+            if(Vector3.Distance(transform.position, _heroTarget.transform.position) > _maxDistance)
+                _agent.UnitPathfinder.Restart();
 
             //Debug.Log("New Target Found");
             _target = _heroTarget.gameObject;
             _targetController.AddTarget(_target);
-            
-            if (Vector3.Distance(transform.position, _target.transform.position) > _maxDistance)
-            {
-                //Debug.Log("Moving Closer To Target");
-                //_richAI.canMove = true;
-            }
 
             return true;
         }
@@ -46,7 +38,7 @@ namespace Reclamation.AI
         public override bool PostPerform()
         {
             //Debug.Log("Target Reached");
-            //_richAI.canMove = false;
+            _agent.UnitPathfinder.Stop();
             
             return true;
         }

@@ -39,7 +39,7 @@ namespace Reclamation.Units
         
         public void Setup()
         {
-            SpawnHero(Utilities.GetRandomGender(), Utilities.RandomValues(Database.instance.Races.Races), Database.instance.Profession.GetProfession("Soldier"), _heroes.Count, new Vector3( 0f, 0f,2f));
+            SpawnHero(Utilities.GetRandomGender(), Utilities.RandomValues(Database.instance.Races.Races), Database.instance.Profession.GetProfession("Soldier"), _heroes.Count, new Vector3( 0f, 0f,-8f));
             SpawnHero(Utilities.GetRandomGender(), Utilities.RandomValues(Database.instance.Races.Races), Database.instance.Profession.GetProfession("Forester"), _heroes.Count, new Vector3( 0f, 0f,0f));
             SpawnHero(Utilities.GetRandomGender(), Utilities.RandomValues(Database.instance.Races.Races), Database.instance.Profession.GetProfession("Miner"), _heroes.Count,    new Vector3( -2f,0f,0f));
             SpawnHero(Utilities.GetRandomGender(), Utilities.RandomValues(Database.instance.Races.Races), Database.instance.Profession.GetProfession("Laborer"), _heroes.Count,  new Vector3( 0f,0f,-2f));
@@ -47,6 +47,7 @@ namespace Reclamation.Units
             SpawnHero(Utilities.GetRandomGender(), Utilities.RandomValues(Database.instance.Races.Races), Database.instance.Profession.GetProfession("Builder"), _heroes.Count,  new Vector3( -0f,0f,-4f));
             SpawnHero(Utilities.GetRandomGender(), Utilities.RandomValues(Database.instance.Races.Races), Database.instance.Profession.GetProfession("Crafter"), _heroes.Count,  new Vector3( -2f,0f,-4f));
             SpawnHero(Utilities.GetRandomGender(), Utilities.RandomValues(Database.instance.Races.Races), Database.instance.Profession.GetProfession("Forager"), _heroes.Count,  new Vector3( 0f,0f,-6f));
+            SpawnHero(Utilities.GetRandomGender(), Utilities.RandomValues(Database.instance.Races.Races), Database.instance.Profession.GetProfession("Hunter"), _heroes.Count,  new Vector3( -2f,0f,-6f));
             
         }
 

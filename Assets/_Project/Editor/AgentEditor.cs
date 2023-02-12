@@ -19,9 +19,13 @@ namespace Reclamation.AI
             if (agentVisual.Agent == null) return;
             
             GUILayout.Label("Current Action: " + agentVisual.Agent.CurrentAction);
-            
             GUILayout.Label("End Reached Distance: " + agentVisual.RichAI.endReachedDistance);
-            GUILayout.Label("Distance To Target: " + agentVisual.RichAI.remainingDistance);
+            GUILayout.Label("RichAI.remainingDistance: " + agentVisual.RichAI.remainingDistance);
+
+            if (agentVisual.Agent.CurrentAction != null && agentVisual.Agent.CurrentAction.Target != null)
+            {
+                GUILayout.Label("Distance To Target: " + Vector3.Distance(agentVisual.transform.position, agentVisual.Agent.CurrentAction.Target.transform.position));
+            }
             
             GUILayout.Label("Actions: ");
             foreach (Action action in agentVisual.Agent.Actions)

@@ -18,6 +18,7 @@ MonoBehaviour:
   _description: 
   _equipModel: {fileID: 9033823261840413309, guid: 79432b82a6e0b3846b833a391dda7c30,
     type: 3}
+  _storageModel: {fileID: 0}
   _itemDrop: {fileID: 8384081800384720211, guid: 1bfe898e3e41c0648a7f5b0b9930d414,
     type: 3}
   _category: 4
@@ -41,7 +42,7 @@ MonoBehaviour:
   _weaponData:
     _hasData: 1
     _weaponType: 1
-    _range: 6
+    _range: 20
     _projectileDelay: 0.75
     _projectile: {fileID: 11400000, guid: 93e952be948f5c94988af5cf3a5fabbf, type: 2}
     _attackEffectPrefab: {fileID: 0}

@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace Reclamation.Interactables
 {
-    public class CraftingStation : Interactable
+    public class CraftingStation : Interactable, IInteractionPoint
     {
         [SerializeField] private Transform _dropSpawn = null;
         [SerializeField] private RecipeDefinition _currentRecipe = null;
@@ -113,6 +113,11 @@ namespace Reclamation.Interactables
 
             Debug.Log("No Ingredients Found");
             return null;
+        }
+
+        public Transform GetInteractionPoint()
+        {
+            return _interactionTransform;
         }
     }
 }

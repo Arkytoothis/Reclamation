@@ -10,12 +10,9 @@ namespace Reclamation.Units
     public class UnitAnimator : MonoBehaviour
     {
         [SerializeField] private Animator _animator = null;
-        [SerializeField] private bool _applyMotion = false;
-        [SerializeField] private float _speedMultiplier = 75f;
 
         private Rigidbody _rigidbody = null;
         private Unit _unit = null;
-        private Vector3 _lastPosition = Vector3.zero;
         [SerializeField] private float _speed;
         
         private void Awake()
@@ -26,10 +23,6 @@ namespace Reclamation.Units
 
         private void Update()
         {
-            //if (_applyMotion == false) return;
-            
-            //_speed = (transform.position - _lastPosition).magnitude * _speedMultiplier;
-            //_lastPosition = transform.position;
             _speed = _rigidbody.velocity.magnitude;
             _animator.SetFloat("Blend", _speed);
         }
@@ -46,10 +39,25 @@ namespace Reclamation.Units
                 _animator.runtimeAnimatorController = weaponData.AnimatorOverride;
             }
         }
+        
+        public void SetAnimatorOverride(AnimatorOverrideController overrideController)
+        {
+            _animator.runtimeAnimatorController = overrideController;
+        }
 
         public void Chop()
         {
             _animator.SetTrigger("Chop");
+        }
+
+        public void MeleeAttack()
+        {
+            _animator.SetTrigger("MeleeAttack");
+        }
+
+        public void RangedAttack()
+        {
+            _animator.SetTrigger("RangedAttack");
         }
 
         public void SetIsWalking(bool walking)

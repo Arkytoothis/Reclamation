@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Pathfinding;
+using Reclamation.Equipment;
 using Reclamation.Units;
 using UnityEngine;
 
@@ -12,43 +12,55 @@ namespace Reclamation.AI
         
         public override bool PrePerform()
         {
-            _enemyTarget = _targetController.FindTarget<Enemy>();
-
-            if (_enemyTarget != null)
-            {
-                //Debug.Log("I Already Have A Target");
-                if (Vector3.Distance(transform.position, _target.transform.position) > _maxDistance)
-                {
-                    //Debug.Log("Move Closer To Target");
-                    //_richAI.canMove = true;
-                }
-                
-                return true;
-            }
-
-            _enemyTarget = EnemyManager.Instance.FindClosestEnemy(transform);
+            SetDistances();
             
-            if(_enemyTarget == null) return false;
+            if (!FindTarget()) return false;
 
-            //Debug.Log("New Target Found");
+            if(Vector3.Distance(transform.position, _enemyTarget.transform.position) > _maxDistance)
+                _agent.UnitPathfinder.Restart();
+                
             _target = _enemyTarget.gameObject;
             _targetController.AddTarget(_target);
             
-            if (Vector3.Distance(transform.position, _target.transform.position) > _maxDistance)
-            {
-                //Debug.Log("Moving Closer To Target");
-                //_richAI.canMove = true;
-            }
-
             return true;
         }
 
         public override bool PostPerform()
         {
             //Debug.Log("Target Reached");
-            //_richAI.canMove = false;
+            _agent.UnitPathfinder.Stop();
             
             return true;
+        }
+
+        private bool FindTarget()
+        {
+            _enemyTarget = _targetController.FindTarget<Enemy>();
+
+            if (_enemyTarget == null)
+            {
+                _enemyTarget = EnemyManager.Instance.FindClosestEnemy(transform);
+            }
+
+            if (_enemyTarget == null)
+            {
+                _agent.UnitPathfinder.Restart();
+                return false;
+            }
+
+            return true;
+        }
+
+        private void SetDistances()
+        {
+            InventoryController inventory = _agent.Unit.Inventory;
+
+            if (inventory != null)
+            {
+                _maxDistance = inventory.GetMeleeWeapon().GetWeaponData().Range;
+            }
+
+            _agent.UnitPathfinder.SetEndReachedDistance(_maxDistance);
         }
     }
 }

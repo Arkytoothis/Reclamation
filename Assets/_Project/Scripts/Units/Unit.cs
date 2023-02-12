@@ -5,12 +5,13 @@ using Reclamation.Abilities;
 using Reclamation.Attributes;
 using Reclamation.Core;
 using Reclamation.Equipment;
+using Reclamation.Interactables;
 using UnityEngine;
 using Attribute = Reclamation.Attributes.Attribute;
 
 namespace Reclamation.Units
 {
-    public abstract class Unit : MonoBehaviour
+    public abstract class Unit : MonoBehaviour, IInteractionPoint
     {
         [SerializeField] protected GameObject _selectionIndicator = null;
         [SerializeField] protected Transform _hitTransform = null;
@@ -28,6 +29,7 @@ namespace Reclamation.Units
         [SerializeField] protected UnitEffects _unitEffects = null;
         [SerializeField] protected AnimationEvents _animationEvents = null;
         [SerializeField] protected UnitPathfinder _pathfinder = null;
+        [SerializeField] protected Transform _interactionPoint = null;
         
         public abstract void SpendActionPoints(int actionPointCost);
         
@@ -47,6 +49,8 @@ namespace Reclamation.Units
         public Transform ProjectileSpawnPoint => _projectileSpawnPoint;
         public UnitEffects UnitEffects => _unitEffects;
         public AnimationEvents AnimationEvents => _animationEvents;
+        public UnitPathfinder Pathfinder => _pathfinder;
+        public Transform InteractionPoint => _interactionPoint;
 
         public bool IsActive => _isActive;
         public bool IsAlive => _isAlive;
@@ -66,13 +70,9 @@ namespace Reclamation.Units
             _isAlive = true;
         }
 
-        private void Start()
+        protected virtual void Start()
         {
             Deselect();
-        }
-
-        private void Update()
-        {
         }
 
         public Attribute GetActions()
@@ -124,5 +124,10 @@ namespace Reclamation.Units
         }
 
         public abstract void SyncData();
+        
+        public Transform GetInteractionPoint()
+        {
+            return _interactionPoint;
+        }
     }
 }

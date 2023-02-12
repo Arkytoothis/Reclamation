@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Mono.Cecil;
 using Reclamation.Units;
 using UnityEngine;
 
@@ -16,21 +15,25 @@ namespace Reclamation.AI
             _heroTarget = _targetController.FindTarget<Hero>();
             _target = _heroTarget.gameObject;
             
+            _agent.UnitAnimator.MeleeAttack();
+            
+            if(Random.Range(0, 100) > 50)
+            {
+                int damage = Random.Range(1, 6);
+                _heroTarget.TakeDamage(gameObject, 0, "Life");
+            }
+            else
+            {
+                //Debug.Log("Miss");
+            }
+            
             return true;
         }
 
         public override bool PostPerform()
         {
             //Debug.Log("Attacking Target: " + _heroTarget.GetShortName());
-            if(Random.Range(0, 100) > 50)
-            {
-                int damage = Random.Range(1, 6);
-                _heroTarget.TakeDamage(gameObject, damage, "Life");
-            }
-            else
-            {
-                Debug.Log("Miss");
-            }
+            
             
             return true;
         }

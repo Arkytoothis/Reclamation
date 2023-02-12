@@ -26,6 +26,8 @@ namespace Reclamation.AI
         public string HarvestPlantsActionName = "Harvest Plants";
         public string AttackEnemyActionName = "Attack Enemy";
         public string FindEnemyToAttackActionName = "Find Enemy To Attack";
+        public string AttackAnimalActionName = "Attack Animal";
+        public string FindAnimalToAttackActionName = "Find Animal To Attack";
         
         public StateType NeedReliefState = null;
         public StateType Relieved = null;
@@ -78,6 +80,11 @@ namespace Reclamation.AI
         public StateType EnemyFound = null;
         public StateType AttackEnemy = null;
         public StateType EnemyAttacked = null;
+        
+        public StateType FindAnimal = null;
+        public StateType AnimalFound = null;
+        public StateType AttackAnimal = null;
+        public StateType AnimalAttacked = null;
         
         private void Awake()
         {

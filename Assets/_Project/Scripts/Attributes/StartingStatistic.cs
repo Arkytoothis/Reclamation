@@ -15,5 +15,12 @@ namespace Reclamation.Attributes
         public AttributeDefinition Derived => _derived;
         public int MinimumValue => _minimumValue;
         public int MaximumValue => _maximumValue;
+
+        public StartingStatistic(AttributeDefinition derived, int minimumValue, int maximumValue)
+        {
+            _derived = derived;
+            _minimumValue = minimumValue;
+            _maximumValue = maximumValue;
+        }
     }
 }

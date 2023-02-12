@@ -21,10 +21,11 @@ namespace Reclamation.Core
         [SerializeField] private MaterialDatabase _materials = null;
         [SerializeField] private EnchantmentDatabase _enchants = null;
         [SerializeField] private RarityDatabase _rarities = null;
-        //[SerializeField] private ResourceDatabase _resources = null;
         [SerializeField] private ResourceNodeDatabase _resourceNodes = null;
         [SerializeField] private BuildingObjectDatabase _buildingObjects = null;
         [SerializeField] private RecipeDatabase _recipes = null;
+        [SerializeField] private EnemyDatabase _enemies = null;
+        [SerializeField] private AnimalDatabase _animalDatabase = null;
         
         [SerializeField] private Sprite _blankSprite = null;
         [SerializeField] private Sprite _draftedSprite = null;
@@ -42,18 +43,17 @@ namespace Reclamation.Core
         public MaterialDatabase Materials => _materials;
         public EnchantmentDatabase Enchants => _enchants;
         public RarityDatabase Rarities => _rarities;
-        //public ResourceDatabase Resources => _resources;
         public ResourceNodeDatabase ResourceNodes => _resourceNodes;
         public BuildingObjectDatabase BuildingObjects => _buildingObjects;
         public RecipeDatabase Recipes => _recipes;
+        public EnemyDatabase Enemies => _enemies;
+        public AnimalDatabase AnimalDatabase => _animalDatabase;
 
         public Sprite BlankSprite => _blankSprite;
-
         public Sprite DraftedSprite => _draftedSprite;
 
         public string SceneLoadFilePath => _sceneLoadFilePath;
 
-        
         public void Setup()
         {
             if (_initialized == true) return;

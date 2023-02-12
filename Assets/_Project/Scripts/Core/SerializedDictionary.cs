@@ -123,6 +123,11 @@ namespace Reclamation.Core
     }
     
     [Serializable]
+    public class AnimalDefinitionDictionary : SerializedDictionary<string, AnimalDefinition>
+    {
+    }
+    
+    [Serializable]
     public class RaceDictionary : SerializedDictionary<string, RaceDefinition>
     {
     }

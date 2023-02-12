@@ -17,11 +17,12 @@ namespace Reclamation.Gui
         [SerializeField] private VitalBar _lifeBar = null;
         
         private Enemy _enemy = null;
+        private Camera _camera = null;
         
         public void Setup(Enemy enemy)
         {
             _enemy = enemy;
-            
+            _camera = Camera.main;
             _itemIcon.enabled = false;
             _itemIcon.sprite = null;
             _itemsCarried.SetText("");
@@ -31,8 +32,7 @@ namespace Reclamation.Gui
         
         public void Update()
         {
-            Camera camera = Camera.main;
-            transform.LookAt(transform.position + camera.transform.rotation * Vector3.forward, camera.transform.rotation * Vector3.up);
+            transform.LookAt(transform.position + _camera.transform.rotation * Vector3.forward, _camera.transform.rotation * Vector3.up);
         }
 
         public void SyncData()

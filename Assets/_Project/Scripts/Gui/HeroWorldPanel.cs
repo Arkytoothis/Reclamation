@@ -17,17 +17,18 @@ namespace Reclamation.Gui
         [SerializeField] private VitalBar _lifeBar = null;
         
         private Hero _hero = null;
+        private Camera _camera = null;
         
         public void Setup(Hero hero)
         {
             _hero = hero;
+            _camera = Camera.main;
             SyncData();
         }
         
         public void Update()
         {
-            Camera camera = Camera.main;
-            transform.LookAt(transform.position + camera.transform.rotation * Vector3.forward, camera.transform.rotation * Vector3.up);
+            transform.LookAt(transform.position + _camera.transform.rotation * Vector3.forward, _camera.transform.rotation * Vector3.up);
         }
 
         public void SyncData()

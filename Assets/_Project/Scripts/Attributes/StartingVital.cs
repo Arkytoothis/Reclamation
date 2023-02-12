@@ -15,5 +15,12 @@ namespace Reclamation.Attributes
         public AttributeDefinition Vital => _vital;
         public int MinimumValue => _minimumValue;
         public int MaximumValue => _maximumValue;
+
+        public StartingVital(AttributeDefinition vital, int minimumValue, int maximumValue)
+        {
+            _vital = vital;
+            _minimumValue = minimumValue;
+            _maximumValue = maximumValue;
+        }
     }
 }

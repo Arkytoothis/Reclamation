@@ -16,9 +16,10 @@ namespace Reclamation.AI
             _targetList = new List<GameObject>();
         }
         
-        public void AddTarget(GameObject resource)
+        public void AddTarget(GameObject target)
         {
-            _targetList.Add(resource);
+            if(_targetList.Contains(target) == false)
+                _targetList.Add(target);
         }
 
         private void CleanTargetList()

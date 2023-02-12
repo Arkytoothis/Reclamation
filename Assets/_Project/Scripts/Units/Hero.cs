@@ -90,6 +90,9 @@ namespace Reclamation.Units
             
             _actionController.SetActionEnabled(StateManager.Instance.FindEnemyToAttackActionName, false);
             _actionController.SetActionEnabled(StateManager.Instance.AttackEnemyActionName, false);
+            
+            _actionController.SetActionEnabled(StateManager.Instance.FindAnimalToAttackActionName, false);
+            _actionController.SetActionEnabled(StateManager.Instance.AttackAnimalActionName, false);
 
             if (profession.DefaultJob == JobTypes.Soldier)
             {
@@ -97,6 +100,13 @@ namespace Reclamation.Units
                 _actionController.SetActionEnabled(StateManager.Instance.AttackEnemyActionName, true);
                 _playerAgent.AddGoal(StateManager.Instance.EnemyAttacked.Name, 1, false, 1);
                 _playerAgent.ModifyState(StateManager.Instance.FindEnemy.Name, 0);
+            }
+            else if (profession.DefaultJob == JobTypes.Hunter)
+            {
+                _actionController.SetActionEnabled(StateManager.Instance.FindAnimalToAttackActionName, true);
+                _actionController.SetActionEnabled(StateManager.Instance.AttackAnimalActionName, true);
+                _playerAgent.AddGoal(StateManager.Instance.AnimalAttacked.Name, 1, false, 1);
+                _playerAgent.ModifyState(StateManager.Instance.FindAnimal.Name, 0);
             }
             else if (profession.DefaultJob == JobTypes.Forester)
             {

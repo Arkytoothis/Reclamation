@@ -15,15 +15,12 @@ namespace Reclamation.AI
         [SerializeField] protected Sprite _icon = null;
         [SerializeField] protected float _cost = 1.0f;
         [SerializeField] protected GameObject _target = null;
-        [SerializeField] protected string _targetTag = null;
         [SerializeField] protected float _duration = 0.0f;
         [SerializeField] protected float _maxDistance = 2.0f;
         [SerializeField] protected WorldState[] _preConditions;
         [SerializeField] protected WorldState[] _afterEffects;
         
-        //protected Seeker _seeker = null;
-        //protected RichAI _richAI = null;
-        protected UnitPathfinder _unitPathfinder = null;
+        protected Agent _agent = null;
         protected TargetController _targetController = null;
         protected WorldStates _beliefs;
         protected Dictionary<string, int> _conditionsDictionary;
@@ -31,19 +28,18 @@ namespace Reclamation.AI
 
         public string ActionName => _actionName;
         public float Cost => _cost;
-        public string TargetTag => _targetTag;
         public float Duration => _duration;
         public float MaxDistance => _maxDistance;
         public WorldState[] PreConditions => _preConditions;
         public WorldState[] AfterEffects => _afterEffects;
-        //public Seeker Seeker => _seeker;
         public TargetController TargetController => _targetController;
         public WorldStates Beliefs => _beliefs;
         //public RichAI RichAI => _richAI;
         public Sprite Icon => _icon;
+        public Agent Agent => _agent;
+
         public Dictionary<string, int> conditionsDictionary => _conditionsDictionary;
         public Dictionary<string, int> effectsDictionary => _effectsDictionary;
-        public UnitPathfinder Pathfinder => _unitPathfinder;
 
         public bool IsRunning
         {
@@ -63,7 +59,7 @@ namespace Reclamation.AI
             set => _target = value;
         }
 
-        public Action()
+        protected Action()
         {
             _conditionsDictionary = new Dictionary<string, int>();
             _effectsDictionary = new Dictionary<string, int>();
@@ -71,7 +67,7 @@ namespace Reclamation.AI
 
         private void Awake()
         {
-            _unitPathfinder = GetComponentInParent<UnitPathfinder>();
+            _agent = GetComponentInParent<Agent>();
             
             if (_preConditions != null)
             {
@@ -104,7 +100,6 @@ namespace Reclamation.AI
             _duration = details.Duration;
             _maxDistance = details.MaxDistance;
             _actionName = details.ActionName;
-            _targetTag = details.TargetTag;
             _afterEffects = details.AfterEffects;
             _preConditions = details.PreConditions;
             

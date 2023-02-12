@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Pathfinding;
+using Pathfinding.RVO;
 using UnityEngine;
 
 namespace Reclamation.Units
@@ -9,7 +11,16 @@ namespace Reclamation.Units
     {
         [SerializeField] private Seeker _seeker = null;
         [SerializeField] private RichAI _richAi = null;
+        [SerializeField] private RVOController _rvoController = null;
         [SerializeField] private AIDestinationSetter _destinationSetter = null;
+
+        private void Awake()
+        {
+            _seeker = GetComponent<Seeker>();
+            _richAi = GetComponent<RichAI>();
+            _rvoController = GetComponent<RVOController>();
+            _destinationSetter = GetComponent<AIDestinationSetter>();
+        }
 
         public void Setup()
         {
@@ -44,15 +55,20 @@ namespace Reclamation.Units
 
         public void Stop()
         {
+            //Debug.Log("Stopping");
             _seeker.CancelCurrentPathRequest();
+            ClearTarget();
             _richAi.canMove = false;
             _richAi.canSearch = false;
+            _rvoController.locked = true;
         }
 
         public void Restart()
         {
+            //Debug.Log("Restarting");
             _richAi.canMove = true;
             _richAi.canSearch = true;
+            _rvoController.locked = false;
         }
 
         public float GetRemainingDistance()
@@ -68,6 +84,16 @@ namespace Reclamation.Units
         public bool GetPathPending()
         {
             return _richAi.pathPending;
+        }
+
+        public bool IsStopped()
+        {
+            return _richAi.isStopped;
+        }
+
+        public void SetEndReachedDistance(float endReachedDistance)
+        {
+            _richAi.endReachedDistance = endReachedDistance;
         }
     }
 }

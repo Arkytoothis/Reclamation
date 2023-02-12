@@ -15,6 +15,7 @@ namespace Reclamation.Units
         [SerializeField] private int _maxEnemies = 0;
         [SerializeField] private float _startSpawningDelay = 5f;
         [SerializeField] private float _delayBetweenSpawns = 5f;
+        [SerializeField] private bool _spawningEnabled = true;
 
         private void Start()
         {
@@ -28,7 +29,7 @@ namespace Reclamation.Units
             clone.transform.position = position;
             
             Enemy enemy = clone.GetComponent<Enemy>();
-            enemy.SetupEnemy(_enemies.Count);
+            enemy.SetupEnemy(this, _enemies.Count);
             _enemies.Add(enemy);
         }
 
@@ -38,12 +39,20 @@ namespace Reclamation.Units
 
             while (true)
             {
-                if (_enemies.Count < _maxEnemies)
+                if (_spawningEnabled && _enemies.Count < _maxEnemies)
                 {
                     SpawnEnemy(_spawnPoint.position);
                 }
                 
                 yield return new WaitForSeconds(_delayBetweenSpawns);
+            }
+        }
+
+        public void EnemyDied(Enemy enemy)
+        {
+            if (_enemies.Contains(enemy))
+            {
+                _enemies.Remove(enemy);
             }
         }
     }

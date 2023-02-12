@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Reclamation.Interactables
 {
-    public class StorageObject : Interactable
+    public class StorageObject : Interactable, IInteractionPoint
     {
         [SerializeField] private List<ItemCategory> _categoriesAllowed = new List<ItemCategory>();
         [SerializeField] private int _stackCapacity = 100;
@@ -188,6 +188,11 @@ namespace Reclamation.Interactables
             }
 
             return item;
+        }
+
+        public Transform GetInteractionPoint()
+        {
+            return _interactionTransform;
         }
     }
 }

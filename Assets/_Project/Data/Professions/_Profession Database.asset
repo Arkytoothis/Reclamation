@@ -26,6 +26,7 @@ MonoBehaviour:
     - Miner
     - Crafter
     - Forager
+    - Hunter
     valueData:
     - {fileID: 11400000, guid: 56c9a393b6f6b1540bb4951b99d9355c, type: 2}
     - {fileID: 11400000, guid: 9f2e0cc190500e6479ead0dd521bb399, type: 2}
@@ -39,3 +40,4 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 4207d7220631fc54c92010e847598dbf, type: 2}
     - {fileID: 11400000, guid: 3718ebca99dabbc4f9dd1a560ed869ba, type: 2}
     - {fileID: 11400000, guid: 8364503792a773149a4e852f0d05d122, type: 2}
+    - {fileID: 11400000, guid: 84d0a28e8758df94393a6eeacac2a110, type: 2}
