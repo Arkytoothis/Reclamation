@@ -5,7 +5,9 @@ using System.Text;
 //using Reclamation.Combat;
 using Reclamation.Core;
 using Reclamation.Abilities;
+using Reclamation.Units;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Reclamation.Equipment
 {
@@ -19,7 +21,7 @@ namespace Reclamation.Equipment
         [SerializeField] private ProjectileDefinition _projectile = null;
         [SerializeField] private GameObject _attackEffectPrefab = null;
         [SerializeField] private AnimatorOverrideController _animatorOverride = null;
-        [SerializeReference] private List<DamageEffect> damageEffects = null;
+        [SerializeReference] private List<DamageEffect> _damageEffects = null;
 
         //[SerializeField, SoundGroup] private List<string> _hitSounds;
         //[SerializeField, SoundGroup] private List<string> _attackSounds;
@@ -31,7 +33,7 @@ namespace Reclamation.Equipment
         public float ProjectileDelay => _projectileDelay;
         public AnimatorOverrideController AnimatorOverride => _animatorOverride;
         public GameObject AttackEffectPrefab => _attackEffectPrefab;
-        public List<DamageEffect> DamageEffects => damageEffects;
+        public List<DamageEffect> DamageEffects => _damageEffects;
         //public List<string> HitSounds => _hitSounds;
         //public List<string> AttackSounds => _attackSounds;
 
@@ -42,7 +44,7 @@ namespace Reclamation.Equipment
             _range = weaponData._range;
             _weaponType = weaponData._weaponType;
             _animatorOverride = weaponData.AnimatorOverride;
-            damageEffects = weaponData.damageEffects;
+            _damageEffects = weaponData.DamageEffects;
         }
 
         public string GetTooltipText()
@@ -53,7 +55,7 @@ namespace Reclamation.Equipment
             sb.Append(_range);
             sb.AppendLine();
 
-            foreach (DamageEffect attack in damageEffects)
+            foreach (DamageEffect attack in _damageEffects)
             {
                 sb.Append(attack.MinimumValue).Append("-").Append(attack.MaximumValue).Append(" ");
                 sb.Append(attack.DamageType.Name).Append(" damage (").Append(attack.DamageClass).Append(")").AppendLine();
@@ -70,7 +72,7 @@ namespace Reclamation.Equipment
             sb.Append(_range);
             sb.AppendLine();
             
-            foreach (DamageEffect attack in damageEffects)
+            foreach (DamageEffect attack in _damageEffects)
             {
                 sb.Append(attack.MinimumValue).Append("-").Append(attack.MaximumValue).Append(" ");
                 sb.Append(attack.DamageType.Name).Append(" damage (").Append(attack.DamageClass).Append(")").AppendLine();

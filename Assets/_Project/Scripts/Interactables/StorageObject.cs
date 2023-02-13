@@ -24,12 +24,7 @@ namespace Reclamation.Interactables
             if(CanStoreCategory(ItemCategory.Ingredient))
             {
                 AddItem(ItemGenerator.GenerateIngredient("Wood Log", 10));
-                AddItem(ItemGenerator.GenerateIngredient("Stone Ore", 10));
                 AddItem(ItemGenerator.GenerateIngredient("Berry", 10));
-                AddItem(ItemGenerator.GenerateIngredient("Copper Ore", 10));
-                AddItem(ItemGenerator.GenerateIngredient("Coal Ore", 10));
-                AddItem(ItemGenerator.GenerateIngredient("Copper Ingot", 2));
-                AddItem(ItemGenerator.GenerateIngredient("Wood Plank", 1));
             }
         }
 

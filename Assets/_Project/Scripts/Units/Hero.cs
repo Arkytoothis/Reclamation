@@ -226,7 +226,7 @@ namespace Reclamation.Units
             return _inventory.GetRangedWeapon();
         }
 
-        public override void Damage(GameObject attacker, DamageTypeDefinition damageType, int damage, string vital)
+        public override void Damage(Unit attacker, DamageTypeDefinition damageType, int damage, string vital)
         {
             if (_isAlive == false) return;
 
@@ -329,9 +329,9 @@ namespace Reclamation.Units
             _worldPanel.SyncData();
         }
 
-        public void TakeDamage(GameObject attacker, int amount, string vital)
+        public void TakeDamage(Unit attacker, DamageTypeDefinition damageType, int amount, string vital)
         {
-            Damage(attacker, null, amount, vital);
+            Damage(attacker, damageType, amount, vital);
         }
     }
 }

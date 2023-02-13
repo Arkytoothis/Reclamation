@@ -116,3 +116,13 @@ MonoBehaviour:
     valueData: []
   _resistances: []
   _prefab: {fileID: 3086542663256823741, guid: 542929238f0df654c8984e618a6bbd28, type: 3}
+  _lootDrops:
+  - _itemShort:
+      _item: {fileID: 11400000, guid: 665c4401f3dfc3c4cb833a8a8d18e447, type: 2}
+      _material: {fileID: 0}
+      _quality: {fileID: 0}
+      _prefix: {fileID: 0}
+      _suffix: {fileID: 0}
+    _minNumberItems: 0
+    _maxNumberItems: 2
+    _spawnChance: 100

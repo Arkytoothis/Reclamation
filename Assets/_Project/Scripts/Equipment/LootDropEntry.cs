@@ -9,11 +9,13 @@ namespace Reclamation.Equipment
     public class LootDropEntry
     {
         [SerializeField] private ItemShort _itemShort = null;
-        [SerializeField] private int _numberItems = 0;
+        [SerializeField] private int _minNumberItems = 0;
+        [SerializeField] private int _maxNumberItems = 0;
         [SerializeField] private int _spawnChance = 100;
 
         public ItemShort ItemShort => _itemShort;
-        public int NumberItems => _numberItems;
+        public int MinNumberItems => _minNumberItems;
+        public int MaxNumberItems => _maxNumberItems;
         public int SpawnChance => _spawnChance;
     }
 }

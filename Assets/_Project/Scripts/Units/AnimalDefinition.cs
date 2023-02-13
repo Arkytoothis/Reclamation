@@ -29,6 +29,7 @@ namespace Reclamation.Attributes
         public List<Resistance> Resistances => _resistances;
         public GameObject Prefab => _prefab;
         public AnimatorOverrideController AnimatorOverride => _animatorOverride;
+        public List<LootDropEntry> LootDrops => _lootDrops;
 
         [Button("Create Attributes")]
         public void CreateAttributes()

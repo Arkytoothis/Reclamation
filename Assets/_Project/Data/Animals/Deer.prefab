@@ -238,14 +238,15 @@ GameObject:
   - component: {fileID: 255863372830746236}
   - component: {fileID: 255863372830746237}
   - component: {fileID: 255863372830746239}
-  - component: {fileID: 255863372830746238}
   - component: {fileID: 255863372830746233}
   - component: {fileID: 1816301515598846349}
   - component: {fileID: 1816301515598846348}
   - component: {fileID: 4630988954390878002}
   - component: {fileID: 657562469387978102}
   - component: {fileID: 489393244922961935}
-  m_Layer: 8
+  - component: {fileID: 255863372830746238}
+  - component: {fileID: 4860381148010555348}
+  m_Layer: 17
   m_Name: Deer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,6 +276,9 @@ Transform:
   - {fileID: 4487727236766489482}
   - {fileID: 7582505233410477256}
   - {fileID: 1753297647117549706}
+  - {fileID: 1217892714475641049}
+  - {fileID: 1866105232350392999}
+  - {fileID: 6016069626023415007}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -291,11 +295,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _selectionIndicator: {fileID: 255863372954272315}
-  _hitTransform: {fileID: 0}
-  _combatTextTransform: {fileID: 0}
-  _projectileSpawnPoint: {fileID: 0}
-  _cameraMount: {fileID: 0}
-  _cameraTarget: {fileID: 0}
+  _hitTransform: {fileID: 1217892714475641049}
+  _projectileSpawnPoint: {fileID: 1866105232350392999}
+  _dropSpawnPoint: {fileID: 6016069626023415007}
   _modelParent: {fileID: 255863372694216431}
   _unitAnimator: {fileID: 255863372830746239}
   _attributes: {fileID: 255863373603015584}
@@ -439,20 +441,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 1531645442008438134}
   _speed: 0
---- !u!136 &255863372830746238
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 255863372830746230}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &255863372830746233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,6 +530,33 @@ MonoBehaviour:
   _richAi: {fileID: 255863372830746225}
   _rvoController: {fileID: 255863372830746237}
   _destinationSetter: {fileID: 657562469387978102}
+--- !u!136 &255863372830746238
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255863372830746230}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.66
+  m_Height: 2
+  m_Direction: 2
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!135 &4860381148010555348
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255863372830746230}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.38
+  m_Center: {x: 0, y: 1.62, z: 0.85}
 --- !u!1 &255863372954272315
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,6 +749,37 @@ Transform:
   m_Father: {fileID: 255863372830746226}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1225553463534078174
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1866105232350392999}
+  m_Layer: 8
+  m_Name: Projectile Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1866105232350392999
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225553463534078174}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.065, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 255863372830746226}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1447834498739218448
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,6 +834,37 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!1 &1866349227008720130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6016069626023415007}
+  m_Layer: 8
+  m_Name: Drop Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6016069626023415007
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866349227008720130}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.16, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 255863372830746226}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2430676674025754947
 GameObject:
   m_ObjectHideFlags: 0
@@ -1172,6 +1249,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &6952895055038797505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1217892714475641049}
+  m_Layer: 8
+  m_Name: Hit Transform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1217892714475641049
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6952895055038797505}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.379, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 255863372830746226}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7000996758931925632
 GameObject:
   m_ObjectHideFlags: 0

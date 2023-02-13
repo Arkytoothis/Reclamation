@@ -55,6 +55,9 @@ MonoBehaviour:
     - Stone Block
     - Berry
     - Copper Ingot
+    - Meat
+    - Coin
+    - Deer Hide
     valueData:
     - {fileID: 11400000, guid: 2ae505d62fdd6724d8de1ca2207b74d3, type: 2}
     - {fileID: 11400000, guid: 20b1b02d41a03ff4ab8e47ecf612ddf7, type: 2}
@@ -97,3 +100,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 5568bdecd3ad71941bb2084d7ca91562, type: 2}
     - {fileID: 11400000, guid: 09cdc2bc9599a544ca599ed4d2162a02, type: 2}
     - {fileID: 11400000, guid: d771b2df80efef547a56d738de10af22, type: 2}
+    - {fileID: 11400000, guid: 9a1a9fb67b353af478b772df04478554, type: 2}
+    - {fileID: 11400000, guid: 665c4401f3dfc3c4cb833a8a8d18e447, type: 2}
+    - {fileID: 11400000, guid: 938b13b189c144047b2c349f8be9f809, type: 2}

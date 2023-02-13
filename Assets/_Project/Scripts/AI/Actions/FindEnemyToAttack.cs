@@ -27,7 +27,6 @@ namespace Reclamation.AI
 
         public override bool PostPerform()
         {
-            //Debug.Log("Target Reached");
             _agent.UnitPathfinder.Stop();
             
             return true;

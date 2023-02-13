@@ -53,8 +53,8 @@ MonoBehaviour:
     - Thirst
     valueData:
     - _vital: {fileID: 11400000, guid: 830a4ee13042db94685c95be9ea29b88, type: 2}
-      _minimumValue: 20
-      _maximumValue: 25
+      _minimumValue: 10
+      _maximumValue: 15
     - _vital: {fileID: 11400000, guid: 18bfe6f4bec976d459ba326b0cd6405e, type: 2}
       _minimumValue: 0
       _maximumValue: 0
@@ -140,5 +140,24 @@ MonoBehaviour:
       _minimumValue: 0
       _maximumValue: 0
   _resistances: []
+  _lootDrops:
+  - _itemShort:
+      _item: {fileID: 11400000, guid: 9a1a9fb67b353af478b772df04478554, type: 2}
+      _material: {fileID: 0}
+      _quality: {fileID: 0}
+      _prefix: {fileID: 0}
+      _suffix: {fileID: 0}
+    _minNumberItems: 0
+    _maxNumberItems: 2
+    _spawnChance: 100
+  - _itemShort:
+      _item: {fileID: 11400000, guid: 938b13b189c144047b2c349f8be9f809, type: 2}
+      _material: {fileID: 0}
+      _quality: {fileID: 0}
+      _prefix: {fileID: 0}
+      _suffix: {fileID: 0}
+    _minNumberItems: 1
+    _maxNumberItems: 1
+    _spawnChance: 100
   _prefab: {fileID: 255863372830746230, guid: bf9438d7f78ffe94f86adacadf981c89, type: 3}
   _animatorOverride: {fileID: 22100000, guid: 35e0cd934ede99f4bbf6fec67a061b4d, type: 2}

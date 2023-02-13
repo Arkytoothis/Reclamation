@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using Reclamation.Abilities;
 using Reclamation.Core;
 using Reclamation.Units;
 using Reclamation.Equipment.Enchantments;
@@ -14,6 +15,7 @@ namespace Reclamation.Equipment
     {
         [SerializeField] private string _name = "";
         [SerializeField] private int _stackSize = 0;
+        
         [SerializeField, FoldoutGroup("Item Data")] private string _description = "";
         [SerializeField, FoldoutGroup("Item Data")] private int _modelIndex = -1;
 
@@ -588,7 +590,7 @@ namespace Reclamation.Equipment
             else
                 return null;
         }
-
+        
         public void ResetScaleAndParent(Transform t, Transform parent)
         {
             t.SetParent(null);
@@ -600,11 +602,18 @@ namespace Reclamation.Equipment
         {
             UsableData usableData = GetUsableData();
 
-            if (usableData == null || _usesLeft <= 0) return;
+            if (usableData != null && _usesLeft <= 0)
+            {
+                usableData.Use(user, targets);
+                Use(1);
+            }
+
+            WeaponData weaponData = GetWeaponData();
             
-            usableData.Use(user, targets);
-            Use(1);
-            //Debug.Log("Used " + DisplayName());
+            if (weaponData != null)
+            {
+                PerformAttack(user, targets);
+            }
         }
 
         public void Use(int uses)
@@ -621,6 +630,27 @@ namespace Reclamation.Equipment
             else
             {
                 return false;
+            }
+        }
+
+        public void PerformAttack(Unit owner, List<Unit> targets)
+        {
+            WeaponData weaponData = GetWeaponData();
+            
+            if (weaponData.Projectile == null)
+            {
+                foreach (DamageEffect attack in weaponData.DamageEffects)
+                {
+                    foreach (Unit target in targets)
+                    {
+                        int damage = Random.Range(attack.MinimumValue, attack.MaximumValue + 1);
+                        target.Damage(owner, attack.DamageType, damage, "Life");
+                    }
+                }
+            }
+            else
+            {
+                owner.SpawnProjectile(targets, weaponData);
             }
         }
     }

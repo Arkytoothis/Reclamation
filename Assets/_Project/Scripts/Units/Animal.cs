@@ -71,7 +71,7 @@ namespace Reclamation.Units
             return null;
         }
 
-        public override void Damage(GameObject attacker, DamageTypeDefinition damageType, int damage, string vital)
+        public override void Damage(Unit attacker, DamageTypeDefinition damageType, int damage, string vital)
         {
             if (_isAlive == false) return;
 
@@ -101,7 +101,21 @@ namespace Reclamation.Units
         {
             _isAlive = false;
             AnimalManager.Instance.RemoveAnimal(this);
-            //_spawner.EnemyDied(this);
+
+            Vector3 spawnPosition = _dropSpawnPoint.position;
+            
+            foreach (LootDropEntry lootDrop in _animalDefinition.LootDrops)
+            {
+                int numberItemsToSpawn = Random.Range(lootDrop.MinNumberItems, lootDrop.MaxNumberItems + 1);
+
+                for (int i = 0; i < numberItemsToSpawn; i++)
+                {
+                    GameObject clone = Instantiate(lootDrop.ItemShort.Item.ItemDrop.gameObject, spawnPosition, Quaternion.identity);
+                    ItemDrop itemDrop = clone.GetComponent<ItemDrop>();
+                    itemDrop.Setup(1);
+                }
+            }
+            
             Destroy(gameObject);
         }
 
@@ -110,15 +124,15 @@ namespace Reclamation.Units
             //onSyncHero.Invoke(this);
             _worldPanel.SyncData();
         }
-
-        public void TakeDamage(GameObject attacker, int amount, string vital)
-        {
-            Damage(attacker, null, amount, vital);
-        }
-
+        
         public void SetDestination(Transform destination)
         {
             _pathfinder.SetDestination(destination);    
+        }
+
+        public void TakeDamage(Unit attacker, DamageTypeDefinition damageType, int amount, string vital)
+        {
+            Damage(attacker, damageType, amount, vital);   
         }
     }
 }

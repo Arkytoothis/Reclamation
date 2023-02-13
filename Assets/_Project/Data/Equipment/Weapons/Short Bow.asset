@@ -43,12 +43,12 @@ MonoBehaviour:
     _hasData: 1
     _weaponType: 1
     _range: 20
-    _projectileDelay: 0.75
-    _projectile: {fileID: 11400000, guid: 93e952be948f5c94988af5cf3a5fabbf, type: 2}
+    _projectileDelay: 0.5
+    _projectile: {fileID: 11400000, guid: d448a407d155bfd429d42a8494de0ab7, type: 2}
     _attackEffectPrefab: {fileID: 0}
     _animatorOverride: {fileID: 22100000, guid: a8e0583897b8ba749bb303d91325fb13,
       type: 2}
-    damageEffects: []
+    _damageEffects: []
   _wearableData:
     _hasData: 0
     _armor: 0

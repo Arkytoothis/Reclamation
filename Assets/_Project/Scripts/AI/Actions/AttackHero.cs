@@ -20,7 +20,7 @@ namespace Reclamation.AI
             if(Random.Range(0, 100) > 50)
             {
                 int damage = Random.Range(1, 6);
-                _heroTarget.TakeDamage(gameObject, 0, "Life");
+                _heroTarget.TakeDamage(_agent.Unit, null, 0, "Life");
             }
             else
             {

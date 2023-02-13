@@ -15,10 +15,8 @@ namespace Reclamation.Units
     {
         [SerializeField] protected GameObject _selectionIndicator = null;
         [SerializeField] protected Transform _hitTransform = null;
-        [SerializeField] protected Transform _combatTextTransform = null;
         [SerializeField] protected Transform _projectileSpawnPoint = null;
-        [SerializeField] protected Transform _cameraMount = null;
-        [SerializeField] protected Transform _cameraTarget = null;
+        [SerializeField] protected Transform _dropSpawnPoint = null;
         [SerializeField] protected Transform _modelParent = null;
         [SerializeField] protected UnitAnimator _unitAnimator = null;
         [SerializeField] protected AttributesController _attributes = null;
@@ -38,9 +36,6 @@ namespace Reclamation.Units
         protected bool _isSelected = false;
         
         public Transform HitTransform => _hitTransform;
-        public Transform CombatTextTransform => _combatTextTransform;
-        public Transform CameraMount => _cameraMount;
-        public Transform CameraTarget => _cameraTarget;
         public AttributesController Attributes => _attributes;
         public SkillsController Skills => _skills;
         public InventoryController Inventory => _inventory;
@@ -60,7 +55,7 @@ namespace Reclamation.Units
         public abstract string GetShortName();
         public abstract Item GetMeleeWeapon();
         public abstract Item GetRangedWeapon();
-        public abstract void Damage(GameObject attacker, DamageTypeDefinition damageType, int damage, string vital);
+        public abstract void Damage(Unit attacker, DamageTypeDefinition damageType, int damage, string vital);
         public abstract void RestoreVital(string vital, int damage);
         public abstract void UseResource(string vital, int damage);
         protected abstract void Dead();
@@ -128,6 +123,24 @@ namespace Reclamation.Units
         public Transform GetInteractionPoint()
         {
             return _interactionPoint;
+        }
+
+        public void SpawnProjectile(List<Unit> targets, WeaponData weaponData)
+        {
+            StartCoroutine(DelayedSpawnProjectile(targets, weaponData, weaponData.ProjectileDelay));
+        }
+        
+        private IEnumerator DelayedSpawnProjectile(List<Unit> targets, WeaponData weaponData, float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            
+            GameObject clone = Instantiate(weaponData.Projectile.Prefab, _projectileSpawnPoint.position, _projectileSpawnPoint.rotation);
+            Projectile projectile = clone.GetComponent<Projectile>();
+            projectile.Setup(this, targets[0]);
+            Rigidbody rigidbody = clone.GetComponent<Rigidbody>();
+            float upwardForce = 3f;
+            Vector3 force = clone.transform.forward * weaponData.Projectile.Speed + clone.transform.up * upwardForce;
+            rigidbody.AddForce(force, ForceMode.Impulse);
         }
     }
 }

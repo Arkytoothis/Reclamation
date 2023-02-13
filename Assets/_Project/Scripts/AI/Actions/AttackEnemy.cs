@@ -21,7 +21,7 @@ namespace Reclamation.AI
             if(Random.Range(0, 100) > 30)
             {
                 int damage = Random.Range(3, 6);
-                _enemyTarget.TakeDamage(gameObject, damage, "Life");
+                _enemyTarget.TakeDamage(_agent.Unit, null, damage, "Life");
             }
             else
             {

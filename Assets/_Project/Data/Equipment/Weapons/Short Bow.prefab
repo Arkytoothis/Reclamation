@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2494806701360536033
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8818710996780463296}
+  m_Layer: 0
+  m_Name: Projectile Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8818710996780463296
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2494806701360536033}
+  m_LocalRotation: {x: -0.7425992, y: -0.019029154, z: 0.021118442, w: 0.66913253}
+  m_LocalPosition: {x: 0.019, y: 0.189, z: -0.04}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7213234664693664755}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -96.788, y: 28.740005, z: -28.570984}
 --- !u!1 &9033823261840413309
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,6 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7213234664693664755}
+  - component: {fileID: -6590231043663645748}
   m_Layer: 0
   m_Name: Short Bow
   m_TagString: Untagged
@@ -29,9 +61,23 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8229739553676287482}
+  - {fileID: 8818710996780463296}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-6590231043663645748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9033823261840413309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26cad3e80be858248936c1b9c7f76623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectileSpawnPoint: {fileID: 8818710996780463296}
 --- !u!1001 &8229739553676412798
 PrefabInstance:
   m_ObjectHideFlags: 0

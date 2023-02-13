@@ -17,6 +17,7 @@ namespace Reclamation.Attributes
         [SerializeField] private StartingSkillDictionary _startingSkills = null;
         [SerializeField] private List<Resistance> _resistances = null;
         [SerializeField] private GameObject _prefab = null;
+        [SerializeField] private List<LootDropEntry> _lootDrops = null;
 
         public string Name => _name;
         public string Key => _key;
@@ -25,7 +26,7 @@ namespace Reclamation.Attributes
         public StartingStatisticDictionary StartingStatistics => _startingStatistics;
         public StartingSkillDictionary StartingSkills => _startingSkills;
         public List<Resistance> Resistances => _resistances;
-
         public GameObject Prefab => _prefab;
+        public List<LootDropEntry> LootDrops => _lootDrops;
     }
 }
