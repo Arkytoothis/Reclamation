@@ -36,8 +36,6 @@ namespace Reclamation.AI
         public StateType NeedFoodState = null;
         public StateType Satiated = null;
         
-        public StateType NeedWaitState = null;
-        public StateType Idle = null;
         public StateType ChopWoodState = null;
         public StateType WoodChopped = null;
         public StateType MineOreState = null;
@@ -85,6 +83,10 @@ namespace Reclamation.AI
         public StateType AnimalFound = null;
         public StateType AttackAnimal = null;
         public StateType AnimalAttacked = null;
+        
+        public StateType NeedIdle = null;
+        public StateType Idle = null;
+        public StateType DoneIdle = null;
         
         private void Awake()
         {

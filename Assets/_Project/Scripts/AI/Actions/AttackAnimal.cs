@@ -13,18 +13,12 @@ namespace Reclamation.AI
         
         public override bool PrePerform()
         {
-            SetupWeapon();    
-            SetDistances();
+            Setup();    
             
             _animalTarget = _targetController.FindTarget<Animal>();
             _target = _animalTarget.gameObject;
-            
             _agent.UnitAnimator.RangedAttack();
-
-            //if (_weapon != null)
-            //{
-                _weapon.Use(_agent.Unit, new List<Unit> { _animalTarget });
-            //}
+            _weapon.Use(_agent.Unit, new List<Unit> { _animalTarget });
             
             return true;
         }
@@ -34,20 +28,16 @@ namespace Reclamation.AI
             return true;
         }
 
-        private void SetupWeapon()
+        private void Setup()
         {
             InventoryController inventory = _agent.Unit.Inventory;
 
-            if (inventory != null)
-            {
-                _weapon = inventory.GetRangedWeapon();
-            }
-        }
-        
-        private void SetDistances()
-        {
+            if (inventory == null) return; 
+            
+            _weapon = inventory.GetRangedWeapon();
             _maxDistance = _weapon.GetWeaponData().Range;
             _agent.UnitPathfinder.SetEndReachedDistance(_maxDistance);
+            _duration = _weapon.GetWeaponData().AttackDelay;
         }
     }
 }

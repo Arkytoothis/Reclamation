@@ -136,7 +136,7 @@ namespace Reclamation.Units
             
             GameObject clone = Instantiate(weaponData.Projectile.Prefab, _projectileSpawnPoint.position, _projectileSpawnPoint.rotation);
             Projectile projectile = clone.GetComponent<Projectile>();
-            projectile.Setup(this, targets[0]);
+            projectile.Setup(this, targets);
             Rigidbody rigidbody = clone.GetComponent<Rigidbody>();
             float upwardForce = 3f;
             Vector3 force = clone.transform.forward * weaponData.Projectile.Speed + clone.transform.up * upwardForce;

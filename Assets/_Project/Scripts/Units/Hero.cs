@@ -94,6 +94,8 @@ namespace Reclamation.Units
             _actionController.SetActionEnabled(StateManager.Instance.FindAnimalToAttackActionName, false);
             _actionController.SetActionEnabled(StateManager.Instance.AttackAnimalActionName, false);
 
+            _playerAgent.AddGoal(StateManager.Instance.DoneIdle.Name, 0, false, 10);
+            
             if (profession.DefaultJob == JobTypes.Soldier)
             {
                 _actionController.SetActionEnabled(StateManager.Instance.FindEnemyToAttackActionName, true);

@@ -14,7 +14,13 @@ namespace Reclamation.AI
         {
             SetDistances();
 
-            if (!FindTarget()) return false;
+            if (!FindTarget())
+            {
+                _agent.UnitPathfinder.Stop();
+                _agent.ModifyState(StateManager.Instance.NeedIdle.Name, 0);
+                
+                return false;
+            }
             
             if(Vector3.Distance(transform.position, _animalTarget.transform.position) > _maxDistance)
                 _agent.UnitPathfinder.Restart();

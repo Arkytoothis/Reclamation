@@ -80,6 +80,7 @@ namespace Reclamation.Equipment
         public string PrefixEnchantKey => _prefixEnchantKey;
         public string SuffixEnchantKey => _suffixEnchantKey;
 
+        
         public ItemDefinition ItemDefinition => Database.instance.Items.GetItem(_definitionKey);
         public MaterialDefinition MaterialDefinition => Database.instance.Materials.GetMaterial(_materialKey);
         public EnchantmentDefinition PrefixDefinition => Database.instance.Enchants.GetEnchant(_prefixEnchantKey);
@@ -639,14 +640,7 @@ namespace Reclamation.Equipment
             
             if (weaponData.Projectile == null)
             {
-                foreach (DamageEffect attack in weaponData.DamageEffects)
-                {
-                    foreach (Unit target in targets)
-                    {
-                        int damage = Random.Range(attack.MinimumValue, attack.MaximumValue + 1);
-                        target.Damage(owner, attack.DamageType, damage, "Life");
-                    }
-                }
+                weaponData.ProcessHit(owner, targets);
             }
             else
             {

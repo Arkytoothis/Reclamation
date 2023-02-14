@@ -18,6 +18,7 @@ MonoBehaviour:
   _description: 
   _equipModel: {fileID: 9033823261840413309, guid: 6aec9a6fea4a20f449f86cefcb747cc0,
     type: 3}
+  _storageModel: {fileID: 0}
   _itemDrop: {fileID: 8384081800384720211, guid: e07eb74477b9a2b4fa88e71e7413865d,
     type: 3}
   _category: 4
@@ -42,14 +43,15 @@ MonoBehaviour:
     _hasData: 1
     _weaponType: 0
     _range: 2
+    _attackDelay: 1
     _projectileDelay: 0
     _projectile: {fileID: 0}
     _attackEffectPrefab: {fileID: 8792079695798041162, guid: dda8190cc7e43bf49b13394dc4ef22b4,
       type: 3}
     _animatorOverride: {fileID: 22100000, guid: 21f31342c2335b54999cd2c1b1373edb,
       type: 2}
-    damageEffects:
-    - rid: 5740423986529959957
+    _damageEffects:
+    - rid: 7907628560382689280
   _wearableData:
     _hasData: 0
     _armor: 0
@@ -79,12 +81,12 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 5740423986529959957
+    - rid: 7907628560382689280
       type: {class: DamageEffect, ns: Reclamation.Abilities, asm: Reclamation}
       data:
-        _affects: 4
-        _damageType: {fileID: 0}
-        _attribute: {fileID: 0}
-        _damageClass: 4
-        _minimumValue: 0
-        _maximumValue: 0
+        _affects: 1
+        _damageType: {fileID: 11400000, guid: 925f665afc41d7842b8acfca1db57579, type: 2}
+        _attribute: {fileID: 11400000, guid: 830a4ee13042db94685c95be9ea29b88, type: 2}
+        _damageClass: 0
+        _minimumValue: 4
+        _maximumValue: 10

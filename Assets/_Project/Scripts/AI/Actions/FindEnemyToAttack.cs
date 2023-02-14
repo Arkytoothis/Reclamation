@@ -13,8 +13,14 @@ namespace Reclamation.AI
         public override bool PrePerform()
         {
             SetDistances();
-            
-            if (!FindTarget()) return false;
+
+            if (!FindTarget())
+            {
+                _agent.UnitPathfinder.Stop();
+                _agent.ModifyState(StateManager.Instance.NeedIdle.Name, 0);
+                
+                return false;
+            }
 
             if(Vector3.Distance(transform.position, _enemyTarget.transform.position) > _maxDistance)
                 _agent.UnitPathfinder.Restart();

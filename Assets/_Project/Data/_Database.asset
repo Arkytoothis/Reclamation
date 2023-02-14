@@ -25,6 +25,8 @@ MonoBehaviour:
   _resourceNodes: {fileID: 11400000, guid: 42734b2d889e7ac49a5a356f33f56641, type: 2}
   _buildingObjects: {fileID: 11400000, guid: 5c31649a54edcd34ca54fd0496aba68a, type: 2}
   _recipes: {fileID: 11400000, guid: c97b1044caff01542a3fd278a39eb74e, type: 2}
+  _enemies: {fileID: 11400000, guid: 65341ae8446007e418afb686266d2557, type: 2}
+  _animalDatabase: {fileID: 11400000, guid: cb52d572f84442d4b9c1a15a17f5bad5, type: 2}
   _blankSprite: {fileID: 0}
   _draftedSprite: {fileID: 21300000, guid: 9b76b0241f0cb4cd1abd5bf186b34fb3, type: 3}
   _sceneLoadFilePath: D:/Projects/Relamation/Reclamation - Prototype/Assets/StreamingAssets/SaveData/scene_load_data.dat

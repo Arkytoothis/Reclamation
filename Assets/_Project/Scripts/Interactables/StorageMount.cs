@@ -20,10 +20,14 @@ namespace Reclamation.Interactables
             _mount.ClearTransform();
         }
 
-        public void MountItem(Item item)
+        public void MountItem(Item item, bool displayItem)
         {
             _item = new Item(item);
-            GameObject clone = GameObject.Instantiate(item.ItemDefinition.StorageModel, _mount);
+
+            if (displayItem == true)
+            {
+                GameObject clone = GameObject.Instantiate(item.ItemDefinition.StorageModel, _mount);
+            }
         }
 
         public void AddItemsToStack(int itemsToAdd)
@@ -31,11 +35,11 @@ namespace Reclamation.Interactables
             _item.StackSize += itemsToAdd;
         }
 
-        public void RemoveItemsFromStack(int itemsToRemove)
+        public void RemoveItemsFromStack(int itemsToRemove, bool displayItem)
         {
             _item.StackSize -= itemsToRemove;
 
-            if (_item.StackSize <= 0)
+            if (displayItem == true && _item.StackSize <= 0)
             {
                 Clear();
             }

@@ -9,19 +9,21 @@ namespace Reclamation.AI
     {
         public override bool PrePerform()
         {
-            // _target = TargetManager.Instance.idleSpot.gameObject;
-            //
-            // if (_target == null)
-            // {
-            //     return false;
-            // }
+            _target = TargetManager.Instance.idleSpot.gameObject;
+            
+            if (_target == null) return false;
+            
+            _agent.UnitPathfinder.SetEndReachedDistance(_maxDistance);
+            if(Vector3.Distance(transform.position, _target.transform.position) > _maxDistance)
+                _agent.UnitPathfinder.Restart();
             
             return true;
         }
 
         public override bool PostPerform()
         {
-            //_beliefs.RemoveState(StateManager.Instance.NeedWaitState.Name);
+            _agent.UnitPathfinder.Stop();
+            _beliefs.RemoveState(StateManager.Instance.NeedIdle.Name);
             
             return true;
         }

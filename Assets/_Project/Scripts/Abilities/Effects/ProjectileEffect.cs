@@ -26,7 +26,7 @@ namespace Reclamation.Abilities
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append("Projectile causes ").Append(_projectileDefinition.DamageType.Name).Append(" damage\n");
+            sb.Append("Projectile causes ");//.Append(_projectileDefinition.DamageType.Name).Append(" damage\n");
 
             return sb.ToString();
         }

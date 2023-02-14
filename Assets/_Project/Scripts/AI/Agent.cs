@@ -73,13 +73,12 @@ namespace Reclamation.AI
                 
                 if (_currentAction != null && _currentAction.IsRunning && _currentAction.IsEnabled)
                 {
-                    
                     if (_unitPathfinder.GetRemainingDistance() < _unitPathfinder.GetEndReadchedDistance())
                     {
                         if (!_invoked)
                         {
-                            if (_currentAction.Target != null)
-                                transform.LookAt(_currentAction.Target.transform, Vector3.up);
+                            //if (_currentAction.Target != null)
+                            //    transform.LookAt(_currentAction.Target.transform, Vector3.up);
                             
                             StartCoroutine(CompleteAction(_currentAction.Duration));
                             //Invoke("CompleteAction", _currentAction.Duration);
@@ -167,6 +166,16 @@ namespace Reclamation.AI
             _currentAction.PostPerform();
             _currentAction.IsRunning = false;
             _invoked = false;
+        }
+
+        public void AddGoal(string key, int value, bool remove, int priority)
+        {
+            _goals.Add(new SubGoal(key, value, remove), priority);
+        }
+
+        public void ModifyState(string state, int value)
+        {
+            _beliefs.ModifyState(state, value);
         }
     }
 }

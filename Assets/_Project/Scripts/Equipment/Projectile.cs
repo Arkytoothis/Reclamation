@@ -9,18 +9,16 @@ namespace Reclamation.Equipment
     public class Projectile : MonoBehaviour
     {
         [SerializeField] private ProjectileDefinition _definition = null;
-        [SerializeField] private int _damage = 0;
         [SerializeField] private Unit _owner = null;
-        [SerializeField] private Unit _target = null;
+        [SerializeField] private List<Unit> _targets = null;
         [SerializeField] private int _ownerLayer = 0;
 
         
-        public void Setup(Unit owner, Unit target)
+        public void Setup(Unit owner, List<Unit> targets)
         {
             _owner = owner;
-            _target = target;
+            _targets = targets;
             _ownerLayer = _owner.gameObject.layer;
-            _damage = _definition.GetDamage();
         }
 
         // private void Update()
@@ -32,13 +30,14 @@ namespace Reclamation.Equipment
         {
             if(collision.gameObject.layer != _ownerLayer)
             {
+                _definition.ProcessHit(_owner, _targets);
                 //Debug.Log(collision.gameObject.name + " hit");
-                IDamageSystem damageSystem = collision.gameObject.GetComponent<IDamageSystem>();
-
-                if (damageSystem != null)
-                {
-                    damageSystem.TakeDamage(_owner, null, _damage, "Life");
-                }
+                // IDamageSystem damageSystem = collision.gameObject.GetComponent<IDamageSystem>();
+                //
+                // if (damageSystem != null)
+                // {
+                //     damageSystem.TakeDamage(_owner, null, _damage, "Life");
+                // }
                 
                 Destroy(gameObject);
             }

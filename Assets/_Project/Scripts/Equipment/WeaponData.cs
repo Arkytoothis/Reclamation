@@ -1,13 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Text;
-//using DarkTonic.MasterAudio;
-//using Reclamation.Combat;
 using Reclamation.Core;
 using Reclamation.Abilities;
 using Reclamation.Units;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Reclamation.Equipment
 {
@@ -17,6 +14,7 @@ namespace Reclamation.Equipment
         [SerializeField] private bool _hasData = true;
         [SerializeField] private WeaponTypes _weaponType = WeaponTypes.None;
         [SerializeField] private int _range = 1;
+        [SerializeField] private float _attackDelay = 1f;
         [SerializeField] private float _projectileDelay = 1f;
         [SerializeField] private ProjectileDefinition _projectile = null;
         [SerializeField] private GameObject _attackEffectPrefab = null;
@@ -30,6 +28,7 @@ namespace Reclamation.Equipment
         public ProjectileDefinition Projectile => _projectile;
         public WeaponTypes WeaponType => _weaponType;
         public int Range => _range;
+        public float AttackDelay => _attackDelay;
         public float ProjectileDelay => _projectileDelay;
         public AnimatorOverrideController AnimatorOverride => _animatorOverride;
         public GameObject AttackEffectPrefab => _attackEffectPrefab;
@@ -79,6 +78,18 @@ namespace Reclamation.Equipment
             }
 
             return sb.ToString();
+        }
+        
+        public void ProcessHit(Unit attacker, List<Unit> targets)
+        {
+            foreach (Unit target in targets)
+            {
+                foreach (DamageEffect damageEffect in _damageEffects)
+                {
+                    int damage = Random.Range(damageEffect.MinimumValue, damageEffect.MaximumValue + 1);
+                    target.Damage(attacker, damageEffect.DamageType, damage, damageEffect.Attribute.Key);
+                }
+            }
         }
     }
 }

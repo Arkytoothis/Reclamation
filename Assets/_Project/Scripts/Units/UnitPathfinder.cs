@@ -60,7 +60,7 @@ namespace Reclamation.Units
             ClearTarget();
             _richAi.canMove = false;
             _richAi.canSearch = false;
-            _rvoController.locked = true;
+            //_rvoController.locked = true;
         }
 
         public void Restart()
@@ -68,7 +68,7 @@ namespace Reclamation.Units
             //Debug.Log("Restarting");
             _richAi.canMove = true;
             _richAi.canSearch = true;
-            _rvoController.locked = false;
+            //_rvoController.locked = false;
         }
 
         public float GetRemainingDistance()

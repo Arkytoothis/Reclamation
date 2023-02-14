@@ -656,7 +656,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4487727236766489482}
   - component: {fileID: 4915561409485290629}
-  - component: {fileID: 998311949434450399}
   m_Layer: 8
   m_Name: Action Controller
   m_TagString: Untagged
@@ -694,30 +693,6 @@ MonoBehaviour:
   _actionsDictionary:
     keyData: []
     valueData: []
---- !u!114 &998311949434450399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 528335660713592081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af72c62b389e9614db0d0569828bebed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _isRunning: 0
-  _isEnabled: 1
-  _actionName: Idle
-  _icon: {fileID: 21300000, guid: b53b7e6fa465b45298b65906db4bbf4b, type: 3}
-  _cost: 1
-  _target: {fileID: 0}
-  _duration: 0
-  _maxDistance: 0
-  _preConditions: []
-  _afterEffects:
-  - Key: {fileID: 11400000, guid: 16df972243c7aa74f9cadfce34d8aa9f, type: 2}
-    Value: 0
 --- !u!1 &691492882800597910
 GameObject:
   m_ObjectHideFlags: 0

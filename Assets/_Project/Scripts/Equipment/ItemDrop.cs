@@ -24,7 +24,7 @@ namespace Reclamation.Equipment
 
         public void Setup(int stackSize)
         {
-            if (_itemToDrop.Item.Category == ItemCategory.Ingredient)
+            if (_itemToDrop.Item.Category == ItemCategory.Ingredient || _itemToDrop.Item.Category == ItemCategory.Valuables)
             {
                 _item = ItemGenerator.GenerateIngredient(_itemToDrop.Item.Key, stackSize);
             }

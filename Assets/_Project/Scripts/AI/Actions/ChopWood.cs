@@ -14,21 +14,24 @@ namespace Reclamation.AI
 
             if (node == null)
             {
+                _agent.UnitPathfinder.Stop();
+                _agent.ModifyState(StateManager.Instance.NeedIdle.Name, 0);
+                
                 return false;
             }
+
+            if(Vector3.Distance(transform.position, node.transform.position) > _maxDistance)
+                _agent.UnitPathfinder.Restart();
             
             _target = node.gameObject;
-
-            if (_target == null)
-            {
-                return false;
-            }
             
             return true;
         }
 
         public override bool PostPerform()
         {
+            _agent.UnitPathfinder.Stop();
+            
             ResourceNode node = _target.GetComponent<ResourceNode>();
 
             if (node != null)

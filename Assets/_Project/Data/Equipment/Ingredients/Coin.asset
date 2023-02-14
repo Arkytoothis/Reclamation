@@ -21,12 +21,12 @@ MonoBehaviour:
     type: 3}
   _itemDrop: {fileID: 540797908156083870, guid: 5a93831f7fba4164399301b83dae3141,
     type: 3}
-  _category: 2
+  _category: 6
   _itemType: 25
   _nameFormat: 4
   _equipmentSlot: 15
   _renderSlots: []
-  _materialAllowed: 8
+  _materialAllowed: 5
   _hands: 5
   _bestQualityAllowed: 0
   _enchantable: 0
@@ -43,6 +43,7 @@ MonoBehaviour:
     _hasData: 0
     _weaponType: 0
     _range: 0
+    _attackDelay: 0
     _projectileDelay: 0
     _projectile: {fileID: 0}
     _attackEffectPrefab: {fileID: 0}
@@ -71,7 +72,7 @@ MonoBehaviour:
       rid: -2
   _ingredientData:
     _hasData: 1
-    _type: 2
+    _type: 4
   references:
     version: 2
     RefIds:

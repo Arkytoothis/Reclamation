@@ -70,7 +70,7 @@ namespace Reclamation.Core
         Number, None
     }
     
-    public enum ItemCategory { Accessories, Ammo, Ingredient, Shields, Weapons, Wearable, Number, None }
+    public enum ItemCategory { Accessories, Ammo, Ingredient, Shields, Weapons, Wearable, Valuables, Number, None }
 
 
     public enum ItemMaterialType
@@ -220,7 +220,7 @@ namespace Reclamation.Core
     
     public enum JobTypes
     {
-        Forester, Miner, Laborer, Builder, Crafter, Forager, Soldier, Hunter, Scout,
+        Forester, Miner, Laborer, Builder, Crafter, Forager, Soldier, Hunter, Scout, Archer,
         Number, None
     }
 }

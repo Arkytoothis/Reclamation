@@ -56,15 +56,5 @@ namespace Reclamation.AI
                 _beliefs.ModifyState(StateManager.Instance.NeedFoodState.Name, 0);
             }
         }
-
-        public void AddGoal(string key, int value, bool remove, int priority)
-        {
-            _goals.Add(new SubGoal(key, value, remove), priority);
-        }
-
-        public void ModifyState(string state, int value)
-        {
-            _beliefs.ModifyState(state, value);
-        }
     }
 }

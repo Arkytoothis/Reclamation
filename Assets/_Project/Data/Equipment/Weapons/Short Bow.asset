@@ -43,6 +43,7 @@ MonoBehaviour:
     _hasData: 1
     _weaponType: 1
     _range: 20
+    _attackDelay: 3
     _projectileDelay: 0.5
     _projectile: {fileID: 11400000, guid: d448a407d155bfd429d42a8494de0ab7, type: 2}
     _attackEffectPrefab: {fileID: 0}

@@ -14,6 +14,7 @@ namespace Reclamation.Interactables
         [SerializeField] private List<ItemCategory> _categoriesAllowed = new List<ItemCategory>();
         [SerializeField] private int _stackCapacity = 100;
         [SerializeField] private List<StorageMount> _itemMounts = null;
+        [SerializeField] private bool _displayItems = true;
 
         public List<StorageMount> ItemMounts => _itemMounts;
 
@@ -84,7 +85,7 @@ namespace Reclamation.Interactables
 
                 if (emptySlot != -1)
                 {
-                    _itemMounts[emptySlot].MountItem(item);
+                    _itemMounts[emptySlot].MountItem(item, _displayItems);
                     StockpileManager.Instance.AddItem(item);
                 }
                 else
@@ -119,7 +120,7 @@ namespace Reclamation.Interactables
 
             if (sameSlot != -1)
             {
-                _itemMounts[sameSlot].RemoveItemsFromStack(amountToRemove);
+                _itemMounts[sameSlot].RemoveItemsFromStack(amountToRemove, _displayItems);
                 StockpileManager.Instance.RemoveItem(item, amountToRemove);
                 StockpileManager.Instance.SyncStockpile();
             }
