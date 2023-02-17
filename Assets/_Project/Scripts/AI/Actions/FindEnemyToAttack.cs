@@ -16,15 +16,11 @@ namespace Reclamation.AI
 
             if (!FindTarget())
             {
-                _agent.UnitPathfinder.Stop();
-                _agent.ModifyState(StateManager.Instance.NeedIdle.Name, 0);
-                
+                SetIdleState();
                 return false;
             }
 
-            if(Vector3.Distance(transform.position, _enemyTarget.transform.position) > _maxDistance)
-                _agent.UnitPathfinder.Restart();
-                
+            CheckDistanceToTarget(_enemyTarget.transform);
             _target = _enemyTarget.gameObject;
             _targetController.AddTarget(_target);
             

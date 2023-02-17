@@ -17,14 +17,21 @@ namespace Reclamation.AI
         {
             _craftingStation = BuildingManager.Instance.FindClosestCraftingStationWithRecipe(transform);
             _resourceController = GetComponentInParent<Hero>().ResourceController;
-            
-            if(_craftingStation == null || _resourceController == null) return false;
-            if (_craftingStation.CurrentRecipe == null || _craftingStation.RecipeOrders == 0) return false;
+
+            if (_craftingStation == null)
+            {
+                //SetIdleState();
+                return false;
+            }
 
             _resourceController.SetRequiredItem(_craftingStation.GetFirstRequiredIngredient(), 1);
-            _storageObject = BuildingManager.Instance.FindClosestStorageObject(_craftingStation.transform, _resourceController.ItemRequired.ItemDefinition.Category);
+
+            if (_resourceController.ItemRequired == null)
+            {
+                return false;
+            }
             
-            if (_resourceController.ItemRequired == null) return false;
+            _storageObject = BuildingManager.Instance.FindClosestStorageObject(_craftingStation.transform, _resourceController.ItemRequired.ItemDefinition.Category);
             
             if (_storageObject.HasItem(_resourceController.ItemRequired, 1))
             {

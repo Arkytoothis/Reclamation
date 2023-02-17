@@ -134,7 +134,7 @@ namespace Reclamation.Build
 
             for (int i = 0; i < _craftingStations.Count; i++)
             {
-                if (_craftingStations[i].RecipeOrders > 0)
+                if (_craftingStations[i].RecipeOrders > 0 && StockpileManager.Instance.CanCraftRecipe(_craftingStations[i].CurrentRecipe))
                 {
                     craftingStations.Add(_craftingStations[i]);
                 }

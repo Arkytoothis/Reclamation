@@ -137,3 +137,18 @@ MonoBehaviour:
   _finesseModifier: 1
   _spellModifier: 1
   _prefersRanged: 0
+  _startingStates:
+  - _stateType: {fileID: 11400000, guid: 76ce78a1ca6776f45b1502ca0540f1ae, type: 2}
+    _remove: 0
+    _priority: 0
+  - _stateType: {fileID: 11400000, guid: 5dc14c8d9f1c21d48811b7b6f757ef11, type: 2}
+    _remove: 0
+    _priority: 0
+  _startingGoals:
+  - _stateType: {fileID: 11400000, guid: 745c2cbed5664ba48b9b32bab4831e71, type: 2}
+    _remove: 0
+    _priority: 1
+  _startingBeliefs:
+  - _stateType: {fileID: 11400000, guid: 76ce78a1ca6776f45b1502ca0540f1ae, type: 2}
+    _remove: 0
+    _priority: 0

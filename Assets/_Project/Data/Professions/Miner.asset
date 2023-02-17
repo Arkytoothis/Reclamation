@@ -110,3 +110,15 @@ MonoBehaviour:
   _finesseModifier: 1
   _spellModifier: 1
   _prefersRanged: 0
+  _startingStates:
+  - _stateType: {fileID: 11400000, guid: f9d71585188691042974eb50e3078565, type: 2}
+    _remove: 0
+    _priority: 0
+  _startingGoals:
+  - _stateType: {fileID: 11400000, guid: b17f3445b10a71f4b8c16c11b52bdee4, type: 2}
+    _remove: 0
+    _priority: 1
+  _startingBeliefs:
+  - _stateType: {fileID: 11400000, guid: f9d71585188691042974eb50e3078565, type: 2}
+    _remove: 0
+    _priority: 0

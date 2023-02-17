@@ -139,5 +139,17 @@ namespace Reclamation.AI
 
         public abstract bool PrePerform();
         public abstract bool PostPerform();
+
+        protected void SetIdleState()
+        {
+            _agent.UnitPathfinder.Stop();
+            _agent.ModifyState(StateManager.Instance.NeedIdle.Name, 0);
+        }
+
+        protected void CheckDistanceToTarget(Transform target)
+        {
+            if(Vector3.Distance(transform.position, target.position) > _maxDistance)
+                _agent.UnitPathfinder.Restart();
+        }
     }
 }

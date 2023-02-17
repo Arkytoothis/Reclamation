@@ -14,15 +14,11 @@ namespace Reclamation.AI
 
             if (node == null)
             {
-                _agent.UnitPathfinder.Stop();
-                _agent.ModifyState(StateManager.Instance.NeedIdle.Name, 0);
-                
+                SetIdleState();
                 return false;
             }
 
-            if(Vector3.Distance(transform.position, node.transform.position) > _maxDistance)
-                _agent.UnitPathfinder.Restart();
-            
+            CheckDistanceToTarget(node.transform);
             _target = node.gameObject;
             
             return true;

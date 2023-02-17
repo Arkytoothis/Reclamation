@@ -39,6 +39,8 @@ namespace Reclamation.Units
 
         public void SetupHero(Genders gender, RaceDefinition race, ProfessionDefinition profession, int listIndex)
         {
+            _isSelected = false;
+            
             _modelParent.ClearTransform();
             _worldModel = Instantiate(race.PrefabMale, _modelParent);
             
@@ -51,111 +53,23 @@ namespace Reclamation.Units
             _portraitModel = Instantiate(race.PrefabMale, null);
             _portraitRenderer = _portraitModel.GetComponent<BodyRenderer>();
             _portraitRenderer.SetupBody(_unitAnimator, _worldRenderer, race, profession);
-            //_portraitModel.SetActive(false);
 
             _heroData.Setup(gender, race, profession, _worldRenderer, listIndex);
             _attributes.Setup(race, profession);
             _skills.Setup(_attributes, race, profession);
             _inventory.Setup(_portraitRenderer, _worldRenderer, gender, race, profession);
+            _attributes.CalculateAttributes();
+            _unitEffects.Setup();
             
             _animationEvents = GetComponentInChildren<AnimationEvents>();
             _animationEvents.Setup(_inventory);
             
-            _attributes.CalculateAttributes();
-            _unitEffects.Setup();
-            
             _pathfinder.Setup();
-            //SetBehaviorTree(defaultJob);
-            
-            _isSelected = false;
-            
             _playerAgent = GetComponent<PlayerAgent>();
             _agentVisual = GetComponent<AgentVisual>();
+            profession.SetupActions(_actionController, _playerAgent);
             
-            _actionController.Setup();
-            _actionController.SetActionEnabled(StateManager.Instance.ChopWoodActionName, false);
-            _actionController.SetActionEnabled(StateManager.Instance.MineOreActionName, false);
-            _actionController.SetActionEnabled(StateManager.Instance.GatherResourceActionName, false);
-            _actionController.SetActionEnabled(StateManager.Instance.StoreResourceActionName, false);
-            
-            _actionController.SetActionEnabled(StateManager.Instance.FindRecipeActionName, false);
-            _actionController.SetActionEnabled(StateManager.Instance.PickupItemForCraftActionName, false);
-            _actionController.SetActionEnabled(StateManager.Instance.DropoffItemForCraftActionName, false);
-            _actionController.SetActionEnabled(StateManager.Instance.CraftItemActionName, false);
-            
-            _actionController.SetActionEnabled(StateManager.Instance.FindBlueprintActionName, false);
-            _actionController.SetActionEnabled(StateManager.Instance.PickupItemForBlueprintActionName, false);
-            _actionController.SetActionEnabled(StateManager.Instance.DropoffItemForBlueprintActionName, false);
-            _actionController.SetActionEnabled(StateManager.Instance.BuildBlueprintActionName, false);
-            
-            _actionController.SetActionEnabled(StateManager.Instance.FindEnemyToAttackActionName, false);
-            _actionController.SetActionEnabled(StateManager.Instance.AttackEnemyActionName, false);
-            
-            _actionController.SetActionEnabled(StateManager.Instance.FindAnimalToAttackActionName, false);
-            _actionController.SetActionEnabled(StateManager.Instance.AttackAnimalActionName, false);
-
-            _playerAgent.AddGoal(StateManager.Instance.DoneIdle.Name, 0, false, 10);
-            
-            if (profession.DefaultJob == JobTypes.Soldier)
-            {
-                _actionController.SetActionEnabled(StateManager.Instance.FindEnemyToAttackActionName, true);
-                _actionController.SetActionEnabled(StateManager.Instance.AttackEnemyActionName, true);
-                _playerAgent.AddGoal(StateManager.Instance.EnemyAttacked.Name, 1, false, 1);
-                _playerAgent.ModifyState(StateManager.Instance.FindEnemy.Name, 0);
-            }
-            else if (profession.DefaultJob == JobTypes.Hunter)
-            {
-                _actionController.SetActionEnabled(StateManager.Instance.FindAnimalToAttackActionName, true);
-                _actionController.SetActionEnabled(StateManager.Instance.AttackAnimalActionName, true);
-                _playerAgent.AddGoal(StateManager.Instance.AnimalAttacked.Name, 1, false, 1);
-                _playerAgent.ModifyState(StateManager.Instance.FindAnimal.Name, 0);
-            }
-            else if (profession.DefaultJob == JobTypes.Forester)
-            {
-                _actionController.SetActionEnabled(StateManager.Instance.ChopWoodActionName, true);
-                _playerAgent.AddGoal(StateManager.Instance.WoodChopped.Name, 1, false, 1);
-                _playerAgent.ModifyState(StateManager.Instance.ChopWoodState.Name, 0);
-            }
-            else if (profession.DefaultJob == JobTypes.Forager)
-            {
-                _actionController.SetActionEnabled(StateManager.Instance.HarvestPlantsActionName, true);
-                _playerAgent.AddGoal(StateManager.Instance.PlantsHarvested.Name, 1, false, 1);
-                _playerAgent.ModifyState(StateManager.Instance.HarvestPlantsState.Name, 0);
-            }
-            else if (profession.DefaultJob == JobTypes.Laborer)
-            {
-                _actionController.SetActionEnabled(StateManager.Instance.GatherResourceActionName, true);
-                _actionController.SetActionEnabled(StateManager.Instance.StoreResourceActionName, true);
-                _playerAgent.AddGoal(StateManager.Instance.ResourceStored.Name, 1, false, 1);
-                _playerAgent.ModifyState(StateManager.Instance.GatherResourceState.Name, 0);
-            }
-            else if (profession.DefaultJob == JobTypes.Miner)
-            {
-                _actionController.SetActionEnabled(StateManager.Instance.MineOreActionName, true);
-                _playerAgent.AddGoal(StateManager.Instance.OreMined.Name, 1, false, 1);
-                _playerAgent.ModifyState(StateManager.Instance.MineOreState.Name, 0);
-            }
-            else if (profession.DefaultJob == JobTypes.Builder)
-            {
-                _actionController.SetActionEnabled(StateManager.Instance.FindBlueprintActionName, true);
-                _actionController.SetActionEnabled(StateManager.Instance.PickupItemForBlueprintActionName, true);
-                _actionController.SetActionEnabled(StateManager.Instance.DropoffItemForBlueprintActionName, true);
-                _actionController.SetActionEnabled(StateManager.Instance.BuildBlueprintActionName, true);
-                _playerAgent.AddGoal(StateManager.Instance.BlueprintBuilt.Name, 1, false, 1);
-                _playerAgent.ModifyState(StateManager.Instance.FindBlueprint.Name, 0);
-            }
-            else if (profession.DefaultJob == JobTypes.Crafter)
-            {
-                _actionController.SetActionEnabled(StateManager.Instance.FindRecipeActionName, true);
-                _actionController.SetActionEnabled(StateManager.Instance.PickupItemForCraftActionName, true);
-                _actionController.SetActionEnabled(StateManager.Instance.DropoffItemForCraftActionName, true);
-                _actionController.SetActionEnabled(StateManager.Instance.CraftItemActionName, true);
-                _playerAgent.AddGoal(StateManager.Instance.ItemCrafted.Name, 1, false, 1);
-                _playerAgent.ModifyState(StateManager.Instance.FindRecipeState.Name, 0);
-            }
-
             _worldPanel.Setup(this);
-            //_unitAnimator.SetAnimatorOverride(_inventory.GetCurrentWeapon().GetWeaponData());
 
             var children = _portraitModel.GetComponentsInChildren<Transform>(includeInactive: true);
             foreach (var child in children)

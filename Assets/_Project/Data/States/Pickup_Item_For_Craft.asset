@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc1a8e7d85b3a844a844f6ef5eea56e, type: 3}
   m_Name: Pickup_Item_For_Craft
   m_EditorClassIdentifier: 
-  _name: Pickup_Item_For_Craft
+  _name: Pickup Item For Craft

@@ -110,3 +110,24 @@ MonoBehaviour:
   _finesseModifier: 1
   _spellModifier: 1
   _prefersRanged: 0
+  _startingStates:
+  - _stateType: {fileID: 11400000, guid: 9c496aeb3f9ce2a4e9877ffd9f14bbbd, type: 2}
+    _remove: 0
+    _priority: 0
+  - _stateType: {fileID: 11400000, guid: 8ec0fe97ced5f6a4784293f9c5f0328f, type: 2}
+    _remove: 0
+    _priority: 0
+  - _stateType: {fileID: 11400000, guid: 089024b1910a86d439d9addf6a9f9807, type: 2}
+    _remove: 0
+    _priority: 0
+  - _stateType: {fileID: 11400000, guid: 5174393eb7c0c4e4a8a3d77cf725cb98, type: 2}
+    _remove: 0
+    _priority: 0
+  _startingGoals:
+  - _stateType: {fileID: 11400000, guid: 5e60110ff843189409f98bdfd2dadba1, type: 2}
+    _remove: 0
+    _priority: 1
+  _startingBeliefs:
+  - _stateType: {fileID: 11400000, guid: 9c496aeb3f9ce2a4e9877ffd9f14bbbd, type: 2}
+    _remove: 0
+    _priority: 0

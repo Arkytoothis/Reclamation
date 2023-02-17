@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Reclamation.Craft;
 using ScriptableObjectArchitecture;
 using UnityEngine;
 
@@ -62,6 +63,34 @@ namespace Reclamation.Equipment
         public void SyncStockpile()
         {
             onSyncStockpile.Invoke(true);
+        }
+
+        public bool HasItem(ItemDefinition itemDefinition)
+        {
+            foreach (Item item in _items)
+            {
+                if (item.Key == itemDefinition.Key && item.StackSize > 0)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        
+        public bool CanCraftRecipe(RecipeDefinition recipe)
+        {
+            bool canCraft = true;
+
+            foreach (RecipeIngredient recipeIngredient in recipe.Ingredients)
+            {
+                if (HasItem(recipeIngredient.Item) == false)
+                {
+                    canCraft = false;
+                }
+            }
+
+            return canCraft;
         }
     }
 }
